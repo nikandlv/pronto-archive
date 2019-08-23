@@ -11,3 +11,19 @@ Features
 * Category and tags
 * Advanced search
 * Code previews
+
+## Setup
+
+```
+# install dependencies
+composer update
+npm install
+
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan passport:client
+
+# Start development server
+php artisan serve
+```

@@ -1,0 +1,4 @@
+php artisan migrate:fresh
+php artisan passport:client
+php artisan db:seed
+php artisan serve

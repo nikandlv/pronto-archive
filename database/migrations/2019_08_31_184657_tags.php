@@ -13,7 +13,10 @@ class Tags extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tags', function(Blueprint $table) {
+            $table->bigIncreaments('id');
+            $table->string('title',255);
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class Tags extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tags');
     }
 }

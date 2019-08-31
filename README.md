@@ -14,16 +14,27 @@ Features
 
 ## Setup
 
-```
-# install dependencies
-composer update
-npm install
+#### Install the dependencies
 
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan passport:client
+```console
+# install dependencies
+nikandlv@nikandlv.ir:~$ composer update
+nikandlv@nikandlv.ir:~$ npm install
+```
+
+#### Add your configuration
+
+```console
+nikandlv@nikandlv.ir:~$ cp .env.example .env
+nikandlv@nikandlv.ir:~$ php artisan key:generate
+```
+
+#### Fireup the system
+
+```console
+nikandlv@nikandlv.ir:~$ ./clean-development
 
 # Start development server
-php artisan serve
+nikandlv@nikandlv.ir:~$ php artisan serve
+nikandlv@nikandlv.ir:~$ npm run hot
 ```

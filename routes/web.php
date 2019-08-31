@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/{any}', function ($any) {
+Route::get('/{any}', function () {
 
     return view('index');
   

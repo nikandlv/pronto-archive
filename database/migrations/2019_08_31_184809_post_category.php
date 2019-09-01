@@ -26,6 +26,6 @@ class PostCategory extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('post_category');
     }
 }

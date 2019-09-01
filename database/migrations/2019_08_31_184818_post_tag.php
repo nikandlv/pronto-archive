@@ -14,8 +14,8 @@ class PostTag extends Migration
     public function up()
     {
         Schema::create('post_tag' , function (Blueprint $table) {
-            $table->bigIncrements('tag_id');
-            $table->bigIncrements('post_id');
+            $table->bigInteger('tag_id');
+            $table->bigInteger('post_id');
         });
     }
 

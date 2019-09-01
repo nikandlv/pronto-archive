@@ -13,7 +13,13 @@ class UserMetas extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('user_metas' , function (Blueprint $table) {
+            $table->string('name' , 255);
+            $table->text('value');
+            $table->bigIncrements('user_id');
+
+            $table->foreign('user_id')->references('id')->on('User')->onDelete('cascade');
+        });
     }
 
     /**

@@ -13,7 +13,6 @@ class PostTag extends Migration
      */
     public function up()
     {
-        //
     }
 
     /**

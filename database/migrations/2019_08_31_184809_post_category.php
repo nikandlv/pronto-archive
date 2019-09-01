@@ -13,7 +13,10 @@ class PostCategory extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('post_category', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigIncrements('category_id');
+        });
     }
 
     /**

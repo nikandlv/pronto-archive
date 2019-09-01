@@ -15,7 +15,7 @@ class PostCategory extends Migration
     {
         Schema::create('post_category', function(Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('category_id');
+            $table->bigInteger('category_id');
         });
     }
 

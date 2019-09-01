@@ -13,7 +13,12 @@ class Posts extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('posts' , function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->json('title');
+            $table->json('content');
+            $table->json('description');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Posts extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('posts');
     }
 }

@@ -17,7 +17,7 @@ class Attachments extends Migration
             $table->text('file');
             $table->text('mime');
             $table->text('title');
-            $table->bigInteger('post_id');
+            $table->unsignedBigInteger('post_id');
 
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });

@@ -16,9 +16,9 @@ class UserMetas extends Migration
         Schema::create('user_metas' , function (Blueprint $table) {
             $table->string('name' , 255);
             $table->text('value');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
 
-            $table->foreign('user_id')->references('id')->on('User')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

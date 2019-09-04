@@ -18,9 +18,9 @@ class Comments extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('post_id');
-            $table->bigInteger('parent_id');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->string('status')->enum([CommentStatusEnum::WAITING , CommentStatusEnum::APPROVED , CommentStatusEnum::DECLINED]);
             $table->json('content');

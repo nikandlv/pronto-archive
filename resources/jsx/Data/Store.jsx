@@ -1,9 +1,11 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk'
 import ApplicationReducer from './Reducers/ApplicationReducer'
+import AuthenticationReducer from './Reducers/AuthenticationReducer'
 
 const defaultReducers = {
-    ApplicationReducer
+    ApplicationReducer,
+    AuthenticationReducer
 }
 
 const initialState = {}

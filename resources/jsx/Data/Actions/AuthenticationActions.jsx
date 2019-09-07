@@ -5,3 +5,9 @@ export const init = () => (dispatch) => {
     type: types.AUTHENTICATION.INIT
   })
 }
+
+export const signIn = () => (dispatch) => {
+  dispatch({
+    type: types.AUTHENTICATION.SIGN_IN
+  })
+}

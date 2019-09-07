@@ -33,8 +33,10 @@ nikandlv@nikandlv.ir:~$ php artisan key:generate
 
 ```console
 nikandlv@nikandlv.ir:~$ ./clean-development
-
+```
 # Start development server
+
+```console
 nikandlv@nikandlv.ir:~$ php artisan serve
 nikandlv@nikandlv.ir:~$ npm run hot
 ```

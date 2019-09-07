@@ -11,3 +11,9 @@ export const signIn = () => (dispatch) => {
     type: types.AUTHENTICATION.SIGN_IN
   })
 }
+
+export const signOut = () => (dispatch) => {
+  dispatch({
+    type: types.AUTHENTICATION.SIGN_OUT
+  })
+}

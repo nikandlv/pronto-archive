@@ -29,7 +29,7 @@ nikandlv@nikandlv.ir:~$ cp .env.example .env
 nikandlv@nikandlv.ir:~$ php artisan key:generate
 ```
 
-#### Fireup the system
+#### Fireup the system/Setup everything
 
 ```console
 nikandlv@nikandlv.ir:~$ ./clean-development

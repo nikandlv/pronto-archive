@@ -23,7 +23,7 @@ class Comments extends Migration
             $table->unsignedBigInteger('user_id');
 
             $table->string('status')->enum([CommentStatusEnum::WAITING , CommentStatusEnum::APPROVED , CommentStatusEnum::DECLINED]);
-            $table->json('content');
+            $table->json('message');
 
 
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');

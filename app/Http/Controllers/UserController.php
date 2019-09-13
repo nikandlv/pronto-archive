@@ -46,7 +46,7 @@ class UserController extends Controller
         $user->password = $attributes['password'];
         $user->role = $attributes['role'];
 
-
+//      saving and returning a resource
         if ($user->save()) {
             return new UsersResource($user);
         }
@@ -60,7 +60,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+//        getting the user
+        $user = User::findOrFail($id);
+
+//        returning user as a resource
+        return new UsersResource($user);
     }
 
     /**

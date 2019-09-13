@@ -14,12 +14,12 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class , 'post_tag' , 'post_id' , 'tag_id');
+        return $this->belongsToMany(Tag::class , 'post_tag');
     }
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class , 'post_category', 'post_id' , 'category_id');
+        return $this->belongsToMany(Category::class , 'post_category');
     }
 
     public function comments()
@@ -29,6 +29,6 @@ class Post extends Model
 
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'likes', 'post_id' , 'user_id');
+        return $this->belongsToMany(User::class, 'likes');
     }
 }

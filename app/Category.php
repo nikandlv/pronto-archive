@@ -12,4 +12,9 @@ class Category extends Model
     {
         return $this->belongsToMany(Post::class ,'post_category' , 'category_id' , 'post_id');
     }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
 }

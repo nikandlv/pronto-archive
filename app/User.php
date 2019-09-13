@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserMeta::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

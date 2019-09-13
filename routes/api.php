@@ -31,7 +31,7 @@ Route::get('/user/{id}' , 'UserController@show');
 Route::post('/user' , 'UserController@store');
 
 // update a specific user
-Route::put('/user' , 'UserController@update');
+Route::put('/user/{id}' , 'UserController@update');
 
 // delete a user
-Route::delete('/user' , 'UserController@destroy');
+Route::delete('/user/{id}' , 'UserController@destroy');

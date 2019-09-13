@@ -67,27 +67,39 @@ class UserController extends Controller
         return new UsersResource($user);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return UsersResource
      */
     public function update(Request $request, $id)
     {
-        //
+//        validate request
+        $attributes = $request->validate([
+            'name' => 'required|min:5',
+            'username' => 'required|min:4|max:35',
+            'email' => 'required',
+            'password' => 'required|min:5|max:255',
+            'role' => 'required'
+        ]);
+
+//        getting user
+        $user = User::findOrFail($id);
+
+//        updating fields
+        $user->name = $attributes['name'];
+        $user->username = $attributes['username'];
+        $user->email = $attributes['email'];
+        $user->password = $attributes['password'];
+        $user->role = $attributes['role'];
+
+//        saving changes and returning User resource
+        if ($user->save()) {
+            return new UsersResource($user);
+        }
     }
 
     /**

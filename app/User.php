@@ -37,4 +37,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function metas()
+    {
+        return $this->hasMany(UserMeta::class);
+    }
 }

@@ -12,13 +12,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::middleware(['auth:api','permissive:admin'])->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//
+//Route::middleware(['auth:api','permissive:admin'])->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 // USERS
 // get list of all users
@@ -27,8 +27,8 @@ Route::get('/users' , 'UserController@index');
 // get a specific user
 Route::get('/user/{id}' , 'UserController@show');
 
-// create user
-Route::post('/user' , 'UserController@create');
+// create a new user
+Route::post('/user' , 'UserController@store');
 
 // update a specific user
 Route::put('/user' , 'UserController@update');

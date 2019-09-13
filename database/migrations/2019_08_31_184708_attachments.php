@@ -13,7 +13,14 @@ class Attachments extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('attachments' , function (Blueprint $table) {
+            $table->text('file');
+            $table->text('mime');
+            $table->text('title');
+            $table->unsignedBigInteger('post_id');
+
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class Attachments extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('attachments');
     }
 }

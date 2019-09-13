@@ -13,7 +13,14 @@ class Categories extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('categories' , function (Blueprint $table) {
+           $table->bigIncrements('id');
+           $table->json('title');
+           $table->json('description');
+           $table->unsignedBigInteger('parent_id');
+
+           $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
+        });
     }
 
     /**

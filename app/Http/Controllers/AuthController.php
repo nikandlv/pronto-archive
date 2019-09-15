@@ -12,12 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller {
 
     use PassportToken;
-
-    function Signup(Request $request) {
-
-    }
     
-    function Signin(Request $request) {
+    function signin(Request $request) {
         $credentials = $request->validate([
             'email' => 'sometimes|string',
             'username' => 'sometimes|string',
@@ -33,8 +29,9 @@ class AuthController extends Controller {
         ,200);
     }
 
-    function Signout(Request $request) {
-        
+    function signout(Request $request) {
+        $request->user()->token()->revoke();
+        return ResponseBuilder::build('response.LOGOUT',null,null,200);
     }
 
     function refresh(Request $request) {

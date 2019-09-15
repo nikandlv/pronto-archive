@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\PassportToken;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 
 class AuthController extends Controller {
+
+    use PassportToken;
 
     function Signup(Request $request) {
         

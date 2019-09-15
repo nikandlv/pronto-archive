@@ -20,18 +20,23 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-// USERS
-// get list of all users
-Route::get('/users' , 'UserController@index');
 
-// get a specific user
-Route::get('/user/{id}' , 'UserController@show');
+Route::group( ['prefix' => '/user' , 'middleware' =>['auth:api', 'permissive']], function () {
+    // ADMIN USERS ONLY
 
-// create a new user
-Route::post('/user' , 'UserController@store');
+    // get list of all users
+     Route::get('/user/list' , 'UserController@index');
 
-// update a specific user
-Route::put('/user/{id}' , 'UserController@update');
+    // get a specific user
+    Route::get('{id}' , 'UserController@show');
 
-// delete a user
-Route::delete('/user/{id}' , 'UserController@destroy');
+    // create a new user
+    Route::post('' , 'UserController@store');
+
+    // update a specific user
+    Route::patch('{id}' , 'UserController@update');
+
+    // delete a user
+    Route::delete('{id}' , 'UserController@destroy');
+});
+

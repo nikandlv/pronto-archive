@@ -22,7 +22,7 @@ use Illuminate\Http\Request;
 
 // USERS
 // get list of all users
-Route::get('/users' , 'UserController@index');
+Route::get('/user/list' , 'UserController@index');
 
 // get a specific user
 Route::get('/user/{id}' , 'UserController@show');
@@ -31,7 +31,7 @@ Route::get('/user/{id}' , 'UserController@show');
 Route::post('/user' , 'UserController@store');
 
 // update a specific user
-Route::put('/user/{id}' , 'UserController@update');
+Route::patch('/user/{id}' , 'UserController@update');
 
 // delete a user
 Route::delete('/user/{id}' , 'UserController@destroy');

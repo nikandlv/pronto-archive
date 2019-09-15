@@ -20,11 +20,12 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::group( ['prefix' => '/user' , 'middleware' =>['auth' , 'adminMiddleware']], function () {
+
+Route::group( ['prefix' => '/user' , 'middleware' =>['auth:api', 'permissive']], function () {
     // ADMIN USERS ONLY
 
     // get list of all users
-    Route::get('list' , 'UserController@index');
+     Route::get('/user/list' , 'UserController@index');
 
     // get a specific user
     Route::get('{id}' , 'UserController@show');

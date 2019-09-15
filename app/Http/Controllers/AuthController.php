@@ -28,7 +28,7 @@ class AuthController extends Controller {
         $user = $request->user();
         $authorization = $this->authorizeClient($user, false);
         $authorization['expires_in'] = Carbon::now()->addSeconds($authorization['expires_in']);
-        return ResponseBuilder::build('response.SUCCESS',null,
+        return ResponseBuilder::build('Success!',null,
             $authorization
         ,200);
     }
@@ -38,7 +38,28 @@ class AuthController extends Controller {
     }
 
     function refresh(Request $request) {
+        $refresh_token = $request->header('refresh_token');
+        $access_token = $request->header('Authorization');
+        if(empty($refresh_token)) {
+            return ResponseBuilder::build('Failed',null,[
+                'error' => 'refresh_token is required'
+            ],422);
+        }
+        if(empty($access_token)) {
+            return ResponseBuilder::build('Failed',null,[
+                'error' => 'Authorization is required'
+            ],401);
+        }
+        $access_token = str_replace('Bearer ','',$access_token);
 
+        $data = $this->attemptRefresh($access_token,$refresh_token);
+        if(isset($data->error)) {
+            return ResponseBuilder::build('Failed',null,[
+                'error' => $data->error
+            ],422);
+        }
+        $data->expires_in = Carbon::now()->addSeconds($data->expires_in)->timestamp;
+        return ResponseBuilder::build('Success!',null,$data,200);
     }
 
 }

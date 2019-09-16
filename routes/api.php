@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,12 +22,22 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
+Route::group(['prefix' => '/auth'] , function () {
+    Route::post('signin' , 'AuthController@signin');
+    Route::post('signup' , 'AuthController@signup');
+});
 
-Route::group( ['prefix' => '/user' , 'middleware' =>['auth:api', 'permissive']], function () {
+Route::group(['prefix' => 'auth' , 'middleware' => 'auth:api'] , function () {
+    Route::get('signout' , 'AuthController@signout');
+    Route::get('user' , 'AuthController@user');
+});
+
+
+Route::group( ['prefix' => '/user' , 'middleware' =>['auth:api', 'permissive:ADMIN'] ], function () {
     // ADMIN USERS ONLY
 
     // get list of all users
-     Route::get('/user/list' , 'UserController@index');
+     Route::get('/list' , 'UserController@index');
 
     // get a specific user
     Route::get('{id}' , 'UserController@show');

@@ -9,26 +9,38 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use phpseclib\Crypt\Hash;
 
 class AuthController extends Controller {
 
     use PassportToken;
 
+    /**
+     * Create a new User
+     *
+     * @param Request $request
+     * @param User $user
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function signup(Request $request, User $user)
     {
-//        validating the requs
+//        validating the request
         $attributes = $request->validate([
             'name' => 'required|string',
             'username' => 'required|string|unique:users',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required'
+            'password' => 'required|string'
         ]);
 
-//        creating the user
+//        hashing password
+        $attributes['password'] = bcrypt($attributes['password']);
+
+//        creating the user with hashed password
         $user->name = $attributes['name'];
         $user->username = $attributes['username'];
         $user->email = $attributes['email'];
         $user->password = $attributes['password'];
+        $user->role = 'USER'; /*by default role must be set to user */
 
 //        saving model
         if($user->save()) {
@@ -42,24 +54,29 @@ class AuthController extends Controller {
      * sign in user and create token
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return bool
      */
     public function signin(Request $request) {
+//        validating request
         $credentials = $request->validate([
             'email' => 'sometimes|string',
             'username' => 'sometimes|string',
             'password' => 'required|string'
         ]);
 
-        if(!Auth::attempt($credentials))
+//        checking for wrong credentials
+        if(!Auth::attempt($credentials)) {
             return ResponseBuilder::build('Wrong credentials',null,null, 401);
+        }
 
+//        getting user
         $user = $request->user();
 
         $authorization = $this->authorizeClient($user, false);
 
         $authorization['expires_in'] = Carbon::now()->addSeconds($authorization['expires_in']);
 
+//        return access token
         return ResponseBuilder::build('Success!',null,
             $authorization
         ,200);
@@ -72,7 +89,10 @@ class AuthController extends Controller {
      * @return \Illuminate\Http\JsonResponse
      */
     public function signout(Request $request) {
+//        revoke access token
         $request->user()->token()->revoke();
+
+//        return logout response
         return ResponseBuilder::build('response.LOGOUT',null,null,200);
     }
 
@@ -122,3 +142,4 @@ class AuthController extends Controller {
         return response()->json($request->user());
     }
 }
+

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,8 +23,13 @@ use Illuminate\Http\Request;
 //});
 
 Route::group(['prefix' => '/auth'] , function () {
-    Route::post('singin' , 'AuthController@signin');
+    Route::post('signin' , 'AuthController@signin');
     Route::post('signup' , 'AuthController@signup');
+});
+
+Route::group(['prefix' => 'auth' , 'middleware' => 'auth:api'] , function () {
+    Route::get('signout' , 'AuthController@signout');
+    Route::get('user' , 'AuthController@user');
 });
 Route::group( ['prefix' => '/user' , 'middleware' =>['auth:api', 'permissive']], function () {
     // ADMIN USERS ONLY

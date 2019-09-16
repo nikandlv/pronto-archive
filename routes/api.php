@@ -20,7 +20,10 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-
+Route::group(['prefix' => '/auth'] , function () {
+    Route::post('singin' , 'AuthController@signin');
+    Route::post('signup' , 'AuthController@signup');
+});
 Route::group( ['prefix' => '/user' , 'middleware' =>['auth:api', 'permissive']], function () {
     // ADMIN USERS ONLY
 

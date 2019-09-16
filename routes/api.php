@@ -31,11 +31,13 @@ Route::group(['prefix' => 'auth' , 'middleware' => 'auth:api'] , function () {
     Route::get('signout' , 'AuthController@signout');
     Route::get('user' , 'AuthController@user');
 });
-Route::group( ['prefix' => '/user' , 'middleware' =>['auth:api', 'permissive']], function () {
+
+
+Route::group( ['prefix' => '/user' , 'middleware' =>['auth:api', 'permissive:ADMIN'] ], function () {
     // ADMIN USERS ONLY
 
     // get list of all users
-     Route::get('/user/list' , 'UserController@index');
+     Route::get('/list' , 'UserController@index');
 
     // get a specific user
     Route::get('{id}' , 'UserController@show');

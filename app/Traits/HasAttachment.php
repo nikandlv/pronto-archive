@@ -2,6 +2,9 @@
 namespace App\Traits;
 
 class HasAttachment {
-  function store() {
+  function store($file) {
+  }
+  function retrive($name) {
+    
   }
 }

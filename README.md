@@ -4,7 +4,7 @@ Pronto is a free and open source personal blog for personal use only
 
 Features
 
-* oAuth2.0
+* Passport oAuth2.0
 * ReactJS
 * Material Design
 * OpenGraph and social previews
@@ -34,7 +34,7 @@ nikandlv@nikandlv.ir:~$ php artisan key:generate
 ```console
 nikandlv@nikandlv.ir:~$ ./clean-development
 ```
-# Start development server
+## Start development server
 
 ```console
 nikandlv@nikandlv.ir:~$ php artisan serve

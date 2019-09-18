@@ -1,7 +1,7 @@
-export function MainRouter() {
+export default function MainRouter() {
     return (
         <div>
-            
+
         </div>
     )
 }

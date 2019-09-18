@@ -1,3 +1,5 @@
-export function collisionLink() {
-    
+export  default function collisionLink() {
+    return (
+        <div>test</div>
+    )
 }

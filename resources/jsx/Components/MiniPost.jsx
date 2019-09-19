@@ -1,5 +1,5 @@
-function MiniPost() {
+export default function MiniPost() {
     return (<div>
-        Hello
+        
     </div>)
 }

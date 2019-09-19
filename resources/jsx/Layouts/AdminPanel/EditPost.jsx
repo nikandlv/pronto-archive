@@ -1,7 +1,7 @@
-    function EditPost() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+export default  function EditPost() {
+    return (
+        <div>
+
+        </div>
+    )
+}

@@ -1,4 +1,4 @@
-function Categories() {
+export default function Categories() {
     return (
         <div>
             test

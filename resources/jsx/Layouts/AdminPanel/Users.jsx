@@ -1,4 +1,4 @@
-function Users() {
+export default function Users() {
     return (
         <div>
             test

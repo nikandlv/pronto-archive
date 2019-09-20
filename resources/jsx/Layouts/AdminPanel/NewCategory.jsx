@@ -1,4 +1,4 @@
-function NewCategory() {
+export default function NewCategory() {
     return (
         <div>
             test

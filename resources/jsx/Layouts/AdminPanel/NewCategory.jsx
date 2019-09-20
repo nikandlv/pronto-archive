@@ -1,4 +1,4 @@
-export default function Settings() {
+export default function NewCategory() {
     return (
         <div>
             test

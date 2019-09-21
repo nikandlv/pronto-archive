@@ -4,7 +4,7 @@ Pronto is a free and open source personal blog for personal use only
 
 Features
 
-* Passport oAuth2.0
+* Passport oAuth2
 * ReactJS
 * Material Design 2.0
 * OpenGraph and social previews

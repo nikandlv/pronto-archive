@@ -6,7 +6,7 @@ Features
 
 * Passport oAuth2.0
 * ReactJS
-* Material Design
+* Material Design 2.0
 * OpenGraph and social previews
 * Category and tags
 * Advanced search

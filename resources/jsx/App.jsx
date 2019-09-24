@@ -4,9 +4,7 @@ import ReduxProvider from './Data/ReduxProvider'
 import MainRouter from './Routes/MainRouter';
 ReactDOM.render(
       <ReduxProvider>
-          <div>
-              <MainRouter />
-          </div>
+            <MainRouter />
       </ReduxProvider>,
     document.getElementById('root')
   );

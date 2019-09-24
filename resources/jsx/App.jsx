@@ -5,9 +5,7 @@ import MainRouter from './Routes/MainRouter';
 ReactDOM.render(
       <ReduxProvider>
           <div>
-              <MainRouter>
-
-              </MainRouter>
+              <MainRouter />
           </div>
       </ReduxProvider>,
     document.getElementById('root')

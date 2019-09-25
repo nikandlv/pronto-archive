@@ -1,5 +1,5 @@
 import React from 'react'
-import {Switch} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import Home from '../Layouts/Blog/Home'
 export default function MainRouter() {
     return (

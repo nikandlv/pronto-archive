@@ -11,7 +11,7 @@ export default function Wrapper(props) {
                     <Sidebar />
                 </Grid>
                 <Grid xs={12} lg={9} xlg={8} item>
-                    a
+                    {props.children}
                 </Grid>
             </Grid>
         </section>

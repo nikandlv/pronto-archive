@@ -1,8 +1,9 @@
 import React from 'react'
+import Topbar from './Topbar'
 export default function Wrapper(props) {
     return (
-        <div>
-            {props.children}
-        </div>
+        <section>
+            <Topbar />
+        </section>
     )
 }

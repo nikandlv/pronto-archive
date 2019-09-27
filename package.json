@@ -25,6 +25,7 @@
         "mui-nutella": "*"
     },
     "dependencies": {
+        "@material-ui/core": "^4.4.3",
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "react-redux": "^7.1.0",

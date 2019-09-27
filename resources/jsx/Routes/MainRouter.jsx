@@ -1,14 +1,21 @@
 import React from 'react'
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
-import Home from '../Layouts/Blog/Home'
-import About from '../Layouts/Blog/About'
+
+import Wrapper from '../Layouts/Wrapper'
+import BlogRouter from './BlogRouter'
+import AdminRouter from './AdminRouter'
+import PanelRouter from './PanelRouter'
+
 export default function MainRouter() {
     return (
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/about" component={About} exact />
-            </Switch>
-        </BrowserRouter>
+        <Wrapper>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/panel/*" component={AdminRouter}/>
+                    <Route path="/admin/*" component={PanelRouter}/>
+                    <Route path="/*" component={BlogRouter}/>
+                </Switch>
+            </BrowserRouter>
+        </Wrapper>
     )
 }

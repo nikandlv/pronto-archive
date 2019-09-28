@@ -3,11 +3,12 @@ import Topbar from './Topbar'
 import Grid from '@material-ui/core/Grid'
 import Sidebar from './Sidebar'
 import { Box } from '@material-ui/core'
+
 export default function Wrapper(props) {
     return (
         <section>
-            <Topbar />
             <Box m={1}>
+            <Topbar />
                 <Grid container spacing={2}>
                     <Grid xs={12} lg={3} xlg={4} item>
                         <Sidebar />

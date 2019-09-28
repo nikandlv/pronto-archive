@@ -42,7 +42,7 @@ export default function Topbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Photos
+            Application
           </Typography>
         </Toolbar>
       </AppBar>

@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 function Topbar(props) {
   const classes = useStyles();
 
-  console.log(props)
+  const name = props.ApplicationReducer.name || 'Pronto'
 
   return (
     <div className={classes.root}>
@@ -35,7 +35,7 @@ function Topbar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Application
+            {name}
           </Typography>
         </Toolbar>
       </AppBar>

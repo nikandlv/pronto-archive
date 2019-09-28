@@ -7,10 +7,12 @@ import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
+import Gutter from '../../Components/Gutter';
 
 const useStyles = makeStyles({
     menu: {
-        borderRadius: 24
+        borderRadius: 24,
+        overflowX: 'hidden'
     }
 })
 
@@ -20,7 +22,7 @@ export default function Sidebar() {
     return (
         <section>
             <Searchbar />
-
+            <Gutter size="sm" />
             <Paper className={classes.menu}>
             <List
                 component="nav"

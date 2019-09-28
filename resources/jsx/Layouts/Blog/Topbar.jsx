@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import withDynamic from '../../Data/withDynamic';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,18 +22,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Topbar() {
+function Topbar(props) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
 
-  const handleMenu = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  console.log(props)
 
   return (
     <div className={classes.root}>
@@ -49,3 +42,5 @@ export default function Topbar() {
     </div>
   );
 }
+
+export default withDynamic(Topbar).injectReducer('ApplicationReducer').build()

@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import LanguageIcon from '@material-ui/icons/LanguageOutlined';
+import LightIcon from '@material-ui/icons/BrightnessLowOutlined'
+import LightOutIcon from '@material-ui/icons/Brightness2Outlined'
 import withDynamic from '../../Data/withDynamic';
 
 const useStyles = makeStyles(theme => ({
@@ -36,6 +38,12 @@ function Topbar(props) {
           </Typography>
           <IconButton color="inherit">
               <LanguageIcon />
+          </IconButton>
+          <IconButton color="inherit">
+              <LightIcon />
+          </IconButton>
+          <IconButton color="inherit">
+              <LightOutIcon />
           </IconButton>
         </Toolbar>
       </AppBar>

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import PostList from './PostList'
+
 export default function Home() {
     return (
-        <div>
-            <Typography>Home</Typography>
-        </div>
+        <PostList />
     )
 }

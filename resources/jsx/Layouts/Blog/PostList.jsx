@@ -1,11 +1,14 @@
 import React from 'react'
-import { IconButton, makeStyles, Typography } from '@material-ui/core'
+import { IconButton, makeStyles, Typography, Divider } from '@material-ui/core'
 
 import ViewDay from '@material-ui/icons/ViewDayOutlined'
+import ViewWeek from '@material-ui/icons/AmpStoriesOutlined'
+import GridIcon from '@material-ui/icons/DashboardOutlined'
 
 const useStyles = makeStyles({
     header: {
-        display: 'flex'
+        display: 'flex',
+        alignItems: 'center'
     },
     title: {
         flexGrow: 1
@@ -17,13 +20,18 @@ export default function PostList() {
     return (
         <section>
             <div className={styles.header}>
-                <Typography variant="h5" className={styles.title}>
-                    Post list
-                </Typography>
+
                 <IconButton>
-                    <ViewDay/>
+                    <ViewWeek />
+                </IconButton>
+                <IconButton>
+                    <ViewDay />
+                </IconButton>
+                <IconButton>
+                    <GridIcon />
                 </IconButton>
             </div>
+            <Divider />
         </section>
     )
 }

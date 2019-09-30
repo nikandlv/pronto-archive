@@ -1,9 +1,16 @@
 import React from 'react'
-import { Card, CardContent } from "@material-ui/core";
+import { Card, CardContent, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+    card: {
+        borderRadius: 16
+    }
+})
 
 export default function PostPreview() {
+    const styles = useStyles()
     return (
-        <Card>
+        <Card className={styles.card}>
             <CardContent>
                 Hello!
             </CardContent>

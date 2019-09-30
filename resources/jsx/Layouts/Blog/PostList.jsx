@@ -5,7 +5,10 @@ import ViewDay from '@material-ui/icons/ViewDayOutlined'
 
 const useStyles = makeStyles({
     header: {
-
+        display: 'flex'
+    },
+    title: {
+        flexGrow: 1
     }
 })
 
@@ -14,7 +17,7 @@ export default function PostList() {
     return (
         <section>
             <div className={styles.header}>
-                <Typography variant="h5">
+                <Typography variant="h5" className={styles.title}>
                     Post list
                 </Typography>
                 <IconButton>

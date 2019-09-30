@@ -4,6 +4,7 @@ import { IconButton, makeStyles, Typography, Divider } from '@material-ui/core'
 import ViewDay from '@material-ui/icons/ViewDayOutlined'
 import ViewWeek from '@material-ui/icons/AmpStoriesOutlined'
 import GridIcon from '@material-ui/icons/DashboardOutlined'
+import LabelIcon from '@material-ui/icons/LabelOutlined'
 
 const useStyles = makeStyles({
     header: {
@@ -20,6 +21,9 @@ export default function PostList() {
     return (
         <section>
             <div className={styles.header}>
+                <IconButton>
+                    <LabelIcon />
+                </IconButton>
                 <div className={styles.push} />
                 <IconButton>
                     <ViewWeek />

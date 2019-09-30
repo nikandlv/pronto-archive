@@ -10,7 +10,7 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center'
     },
-    title: {
+    push: {
         flexGrow: 1
     }
 })
@@ -20,7 +20,7 @@ export default function PostList() {
     return (
         <section>
             <div className={styles.header}>
-
+                <div className={styles.push} />
                 <IconButton>
                     <ViewWeek />
                 </IconButton>

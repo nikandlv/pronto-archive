@@ -12,7 +12,7 @@ import withDynamic from '../../Data/withDynamic';
 const useStyles = makeStyles(theme => ({
     appbar: {
         backgroundColor: theme.palette.background.default,
-        borderRadius: '100rem'
+        borderRadius: '1rem'
     },
     root: {
         flexGrow: 1,

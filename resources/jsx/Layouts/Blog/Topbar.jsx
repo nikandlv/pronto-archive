@@ -25,6 +25,9 @@ const useStyles = makeStyles(theme => ({
     title: {
         flexGrow: 1,
     },
+    avatarbase: {
+      borderRadius: '2rem'
+    }
 }));
 
 function Topbar(props) {
@@ -48,7 +51,7 @@ function Topbar(props) {
           <IconButton color="inherit">
               <LightOutIcon />
           </IconButton>
-          <ButtonBase>
+          <ButtonBase className={classes.avatarbase}>
             <Avatar src={'/img/user.png'} />
           </ButtonBase>
         </Toolbar>

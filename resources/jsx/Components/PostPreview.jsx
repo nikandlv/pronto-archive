@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButton, CardActions } from "@material-ui/core";
+import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButton, CardActions, Button } from "@material-ui/core";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles({
@@ -40,7 +40,9 @@ export default function PostPreview() {
                 Hello!
             </CardContent>
             <CardActions>
-                
+                <Button size="small" color="primary" variant="contained">
+                    Read more
+                </Button>
             </CardActions>
         </Card>
     )

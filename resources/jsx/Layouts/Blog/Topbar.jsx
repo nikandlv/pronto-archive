@@ -9,6 +9,7 @@ import LightIcon from '@material-ui/icons/BrightnessLowOutlined'
 import LightOutIcon from '@material-ui/icons/Brightness2Outlined'
 import withDynamic from '../../Data/withDynamic';
 import { Avatar } from '@material-ui/core';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 const useStyles = makeStyles(theme => ({
     appbar: {
@@ -47,7 +48,9 @@ function Topbar(props) {
           <IconButton color="inherit">
               <LightOutIcon />
           </IconButton>
-          <Avatar src={'/img/user.png'} />
+          <ButtonBase>
+            <Avatar src={'/img/user.png'} />
+          </ButtonBase>
         </Toolbar>
       </AppBar>
     </div>

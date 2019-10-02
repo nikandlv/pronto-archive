@@ -1,6 +1,8 @@
 import React from 'react'
-import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButton } from "@material-ui/core";
+import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButton, CardActions, Button } from "@material-ui/core";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Favorite from '@material-ui/icons/FavoriteBorderOutlined';
+import Message from '@material-ui/icons/MessageOutlined';
 
 const useStyles = makeStyles({
     card: {
@@ -10,6 +12,12 @@ const useStyles = makeStyles({
     },
     img: {
         visibility: 'hidden'
+    },
+    readMore: {
+        borderRadius: '3rem'
+    },
+    push: {
+        flexGrow: 1
     }
 })
 
@@ -39,6 +47,18 @@ export default function PostPreview() {
             <CardContent>
                 Hello!
             </CardContent>
+            <CardActions>
+                <IconButton>
+                    <Favorite />
+                </IconButton>
+                <IconButton>
+                    <Message />
+                </IconButton>
+                <div className={styles.push}/>
+                <Button className={styles.readMore} size="small" color="primary" variant="contained">
+                    Read more
+                </Button>
+            </CardActions>
         </Card>
     )
 }

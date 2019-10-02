@@ -8,6 +8,8 @@ import LanguageIcon from '@material-ui/icons/LanguageOutlined';
 import LightIcon from '@material-ui/icons/BrightnessLowOutlined'
 import LightOutIcon from '@material-ui/icons/Brightness2Outlined'
 import withDynamic from '../../Data/withDynamic';
+import { Avatar } from '@material-ui/core';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 const useStyles = makeStyles(theme => ({
     appbar: {
@@ -23,6 +25,10 @@ const useStyles = makeStyles(theme => ({
     title: {
         flexGrow: 1,
     },
+    avatarbase: {
+      borderRadius: '2rem',
+      margin: '0 0.5rem'
+    }
 }));
 
 function Topbar(props) {
@@ -46,6 +52,9 @@ function Topbar(props) {
           <IconButton color="inherit">
               <LightOutIcon />
           </IconButton>
+          <ButtonBase className={classes.avatarbase}>
+            <Avatar src={'/img/user.png'} />
+          </ButtonBase>
         </Toolbar>
       </AppBar>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconButton, makeStyles, Divider, Grid } from '@material-ui/core'
+import { IconButton, makeStyles, Divider, Grid, Button } from '@material-ui/core'
 
 import ViewDay from '@material-ui/icons/ViewDayOutlined'
 import ViewWeek from '@material-ui/icons/AmpStoriesOutlined'
@@ -8,6 +8,8 @@ import LabelIcon from '@material-ui/icons/LabelOutlined'
 import CategoryIcon from '@material-ui/icons/CategoryOutlined'
 import Explore from '@material-ui/icons/ExploreOutlined'
 import PostPreview from '../../Components/PostPreview'
+import withDynamic from '../../Data/withDynamic'
+import { setLanguage } from '../../Data/Actions/ApplicationActions'
 
 const useStyles = makeStyles({
     header: {
@@ -22,7 +24,7 @@ const useStyles = makeStyles({
     }
 })
 
-export default function PostList() {
+function PostList(props) {
     const styles = useStyles()
     const posts = [{},{}];
     return (
@@ -63,3 +65,5 @@ export default function PostList() {
         </section>
     )
 }
+
+export default withDynamic(PostList).injectReducer('ApplicationReducer').injectAction('setLanguage',setLanguage).build()

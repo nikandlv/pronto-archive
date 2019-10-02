@@ -5,3 +5,10 @@ export const toggleTheme = () => (dispatch) => {
         type: types.APPLICATION.TOGGLE_THEME
     })
 }
+
+export const setLanguage = (code) => (dispatch) => {
+    dispatch({
+        type: types.APPLICATION.SET_LANGUAGE,
+        payload: code
+    })
+}

@@ -1,8 +1,15 @@
 import * as types from '../Actions/types'
-
+import LocalizedStrings from 'react-localization';
+import EnglishLocale from '../../Locale/EN_US.json'
+import TestLocale from '../../Locale/TEST_TEST.json'
 const initialState = {
     name: 'Pronto',
-    theme: 'light'
+    theme: 'light',
+    language: 'en_us',
+    locale: new LocalizedStrings({
+        en_us: EnglishLocale,
+        test_test: TestLocale,
+    })
 }
 
 export default function ApplicationReducer(state = initialState,action) {
@@ -12,7 +19,12 @@ export default function ApplicationReducer(state = initialState,action) {
                 ...state,
                 theme: state.theme === 'light' ? 'dark' : 'light'
             }
-            break;
+        case types.APPLICATION.SET_LANGUAGE:
+            state.locale.setLanguage(action.payload);
+            return {
+                ...state,
+                language: action.payload
+            }
     }
     return state;
 }

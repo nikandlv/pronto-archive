@@ -10,6 +10,7 @@ import LightOutIcon from '@material-ui/icons/Brightness2Outlined'
 import withDynamic from '../../Data/withDynamic';
 import { Avatar } from '@material-ui/core';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import { toggleTheme } from '../../Data/Actions/ApplicationActions';
 
 const useStyles = makeStyles(theme => ({
     appbar: {
@@ -35,6 +36,7 @@ function Topbar(props) {
   const classes = useStyles();
 
   const name = props.ApplicationReducer.name || 'Pronto'
+  const theme = props.ApplicationReducer.theme || 'light'
 
   return (
     <div className={classes.root}>
@@ -46,12 +48,15 @@ function Topbar(props) {
           <IconButton color="inherit">
               <LanguageIcon />
           </IconButton>
-          <IconButton color="inherit">
-              <LightIcon />
+          <IconButton color="inherit" onClick={props.toggleTheme}>
+              {
+                theme === 'light'
+                ? <LightIcon />
+                : <LightOutIcon />
+              }
           </IconButton>
-          <IconButton color="inherit">
-              <LightOutIcon />
-          </IconButton>
+
+          
           <ButtonBase className={classes.avatarbase}>
             <Avatar src={'/img/user.png'} />
           </ButtonBase>
@@ -61,4 +66,4 @@ function Topbar(props) {
   );
 }
 
-export default withDynamic(Topbar).injectReducer('ApplicationReducer').build()
+export default withDynamic(Topbar).injectReducer('ApplicationReducer').injectAction('toggleTheme',toggleTheme).build()

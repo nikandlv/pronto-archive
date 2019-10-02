@@ -8,6 +8,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Gutter from '../../Components/Gutter';
+import AboutCard from '../../Components/AboutCard';
 
 const useStyles = makeStyles({
     menu: {
@@ -58,6 +59,7 @@ export default function Sidebar() {
                 </Collapse>
             </List>
             </Paper>
+            <AboutCard />
         </section>
     )
 }

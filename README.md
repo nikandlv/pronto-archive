@@ -11,6 +11,7 @@ Features
 * Category and tags
 * Advanced search
 * Code previews
+* Multi language support
 
 ## Setup
 

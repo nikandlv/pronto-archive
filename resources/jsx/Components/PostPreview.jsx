@@ -48,7 +48,7 @@ export default function PostPreview() {
                 Hello!
             </CardContent>
             <CardActions>
-                <IconButton>
+                <IconButton color="secondary">
                     <Favorite />
                 </IconButton>
                 <IconButton>

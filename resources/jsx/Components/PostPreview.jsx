@@ -48,6 +48,9 @@ export default function PostPreview() {
                 <IconButton>
                     <Favorite />
                 </IconButton>
+                <IconButton>
+                    <Message />
+                </IconButton>
                 <Button className={styles.readMore} size="small" color="primary" variant="contained">
                     Read more
                 </Button>

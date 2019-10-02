@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
+const mixDependency = require('mix-dependency');
 
+mixDependency.require('react-localization');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

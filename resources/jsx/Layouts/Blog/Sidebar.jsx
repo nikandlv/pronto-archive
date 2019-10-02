@@ -1,12 +1,11 @@
 import React from 'react'
 import Searchbar from './Searchbar'
-import { List, ListItem, ListItemIcon, ListItemText, Collapse, Paper, makeStyles } from '@material-ui/core'
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+import { List, ListItem, ListItemIcon, ListItemText, Paper, makeStyles } from '@material-ui/core'
+import HouseIcon from '@material-ui/icons/HouseOutlined';
+import CategoryIcon from '@material-ui/icons/CategoryOutlined';
+import WorkIcon from '@material-ui/icons/WorkOutlineOutlined';
+import SubjectIcon from '@material-ui/icons/SubjectOutlined';
+import MessageIcon from '@material-ui/icons/MessageOutlined';
 import Gutter from '../../Components/Gutter';
 import AboutCard from '../../Components/AboutCard';
 
@@ -30,33 +29,34 @@ export default function Sidebar() {
                 aria-labelledby="nested-list-subheader">
                 <ListItem button>
                     <ListItemIcon>
-                    <SendIcon />
+                        <HouseIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Sent mail" />
+                    <ListItemText primary="Home" />
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                    <DraftsIcon />
+                        <CategoryIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Drafts" />
+                    <ListItemText primary="Categories"/>
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                    <InboxIcon />
+                        <WorkIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Inbox" />
-                    {open ? <ExpandLess /> : <ExpandMore />}
+                    <ListItemText primary="Resume"/>
                 </ListItem>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                    <ListItem button>
-                        <ListItemIcon>
-                        <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText primary="Starred" />
-                    </ListItem>
-                    </List>
-                </Collapse>
+                <ListItem button>
+                    <ListItemIcon>
+                        <MessageIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Contact me"/>
+                </ListItem>
+                <ListItem button>
+                    <ListItemIcon>
+                        <SubjectIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="About"/>
+                </ListItem>
             </List>
             </Paper>
             <AboutCard />

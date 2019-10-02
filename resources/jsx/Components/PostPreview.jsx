@@ -15,6 +15,9 @@ const useStyles = makeStyles({
     },
     readMore: {
         borderRadius: '3rem'
+    },
+    push: {
+        flexGrow: 1
     }
 })
 
@@ -51,6 +54,7 @@ export default function PostPreview() {
                 <IconButton>
                     <Message />
                 </IconButton>
+                <div className={styles.push}/>
                 <Button className={styles.readMore} size="small" color="primary" variant="contained">
                     Read more
                 </Button>

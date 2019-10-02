@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButton, CardActions, Button } from "@material-ui/core";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Favorite from '@material-ui/icons/FavoriteBorderOutlined';
+import Message from '@material-ui/icons/MessageOutlined';
 
 const useStyles = makeStyles({
     card: {
@@ -43,6 +45,9 @@ export default function PostPreview() {
                 Hello!
             </CardContent>
             <CardActions>
+                <IconButton>
+                    <Favorite />
+                </IconButton>
                 <Button className={styles.readMore} size="small" color="primary" variant="contained">
                     Read more
                 </Button>

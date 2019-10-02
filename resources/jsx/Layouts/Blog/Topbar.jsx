@@ -26,7 +26,8 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     avatarbase: {
-      borderRadius: '2rem'
+      borderRadius: '2rem',
+      margin: '0 0.5rem'
     }
 }));
 

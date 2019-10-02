@@ -10,6 +10,9 @@ const useStyles = makeStyles({
     },
     img: {
         visibility: 'hidden'
+    },
+    readMore: {
+        borderRadius: '3rem'
     }
 })
 
@@ -40,7 +43,7 @@ export default function PostPreview() {
                 Hello!
             </CardContent>
             <CardActions>
-                <Button size="small" color="primary" variant="contained">
+                <Button className={styles.readMore} size="small" color="primary" variant="contained">
                     Read more
                 </Button>
             </CardActions>

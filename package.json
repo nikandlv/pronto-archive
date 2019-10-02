@@ -17,17 +17,19 @@
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
+        "mui-nutella": "*",
         "popper.js": "^1.12",
+        "react-localization": "^1.0.15",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "vue": "^2.5.17",
-        "mui-nutella": "*"
+        "vue": "^2.5.17"
     },
     "dependencies": {
         "@material-ui/core": "^4.4.3",
         "@material-ui/icons": "^4.4.3",
         "@material-ui/styles": "^4.4.3",
+        "mix-dependency": "0.0.1",
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "react-redux": "^7.1.0",

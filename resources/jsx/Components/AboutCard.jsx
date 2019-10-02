@@ -5,9 +5,23 @@ import GithubIcon from './Icons/GithubIcon'
 import TwitterIcon from './Icons/TwitterIcon'
 import LinkedInIcon from './Icons/LinkedInIcon'
 import InstagramIcon from './Icons/InstagramIcon'
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles({
+    card: {
+        borderRadius: 24,
+        marginTop: 16
+    },
+    actions: {
+        display: 'flex',
+        justifyContent: 'center'
+    }  
+})
+
 export default function AboutCard() {
+    const styles = useStyles()
     return (
-        <Card className="paper">
+        <Card className={styles.card}>
         <CardHeader
             avatar={
                 <Avatar src={"/img/user.png"}/>
@@ -16,7 +30,7 @@ export default function AboutCard() {
             subheader={"Fullstack web developer"}
         />
         <Divider/>
-        <CardActions className="flex justify-center">
+        <CardActions className={styles.actions}>
             <IconButton onClick={()=> fox.openURL(fox.lang.owner.email)}>
                 <Message/>
             </IconButton>

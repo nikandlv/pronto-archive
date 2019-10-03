@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconButton, makeStyles, Divider, Grid, Button, Chip } from '@material-ui/core'
+import { IconButton, makeStyles, Divider, Grid, CircularProgress, Chip } from '@material-ui/core'
 
 import Amber from '@material-ui/core/colors/amber'
 import Blue from '@material-ui/core/colors/blue'
@@ -14,6 +14,7 @@ import Explore from '@material-ui/icons/ExploreOutlined'
 import PostPreview from '../../Components/PostPreview'
 import withDynamic from '../../Data/withDynamic'
 import { setLanguage, setSearch } from '../../Data/Actions/ApplicationActions'
+import StyledButton from '../../Components/StyledButton'
 
 const useStyles = makeStyles({
     header: {
@@ -47,13 +48,30 @@ const useStyles = makeStyles({
             }
         }
     },
-    
+    loadMoreWrapper: {
+        marginTop: 16,
+        display: 'flex',
+        justifyContent: 'center'
+    }
 })
 
+const modes = {
+    GRID: 'GRID',
+    LIST: 'LIST'
+}
+
 function PostList(props) {
+    const [mode,setMode] = React.useState(0)
     const styles = useStyles()
-    const posts = [{},{}];
+    const [posts, setPosts] = React.useState([{},{}]);
+    const [loading, setLoading] = React.useState(false)
     const reducer = props.ApplicationReducer || {}
+
+    function setListMode(mode) {
+        return () => {
+            setMode(mode)
+        }
+    }
 
     return (
         <section>
@@ -95,10 +113,10 @@ function PostList(props) {
                 <IconButton>
                     <ViewWeek />
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={setListMode(modes.LIST)}>
                     <ViewDay />
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={setListMode(modes.GRID)}>
                     <GridIcon />
                 </IconButton>
             </div>
@@ -106,6 +124,13 @@ function PostList(props) {
             <Grid container className={styles.container} spacing={2}>
                 {
                     posts.map((post,key) => {
+                        if(mode === modes.LIST) {
+                            return (
+                                <Grid item xs={12} key={key}>
+                                    <PostPreview />
+                                </Grid>
+                            )    
+                        }
                         return (
                             <Grid item xs={12} md={6} key={key}>
                                 <PostPreview />
@@ -113,9 +138,27 @@ function PostList(props) {
                         )
                     })
                 }
+                <Grid item xs={12} className={styles.loadMoreWrapper}>
+                <StyledButton disabled={loading} onClick={() => {
+                            setLoading(true)
+                            setTimeout(() => {
+                                setPosts([...posts,{},{}])
+                                setLoading(false)
+                            }, 1000)
+                        }}>
+                    {
+                        loading
+                        ? <CircularProgress className={styles.progressBar} color="default" />
+                        : 'Load More'
+                    }        
+                        </StyledButton>
+                    
+                </Grid>
             </Grid>
         </section>
     )
 }
 
-export default withDynamic(PostList).injectReducer('ApplicationReducer').injectAction('setSearch',setSearch).build()
+export default withDynamic(PostList)
+.injectReducer('ApplicationReducer')
+.injectAction('setSearch',setSearch).build()

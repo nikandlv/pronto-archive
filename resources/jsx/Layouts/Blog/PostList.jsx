@@ -4,6 +4,7 @@ import { IconButton, makeStyles, Divider, Grid, Button, Chip } from '@material-u
 import Amber from '@material-ui/core/colors/amber'
 import ViewDay from '@material-ui/icons/ViewDayOutlined'
 import ViewWeek from '@material-ui/icons/AmpStoriesOutlined'
+import DeleteIcon from '@material-ui/icons/ClearOutlined'
 import GridIcon from '@material-ui/icons/DashboardOutlined'
 import LabelIcon from '@material-ui/icons/LabelOutlined'
 import CategoryIcon from '@material-ui/icons/CategoryOutlined'
@@ -24,9 +25,9 @@ const useStyles = makeStyles({
         marginTop: 16
     },
     exploreChip: {
-        backgroundColor: Amber[500],
+        backgroundColor: Amber[100],
         '&:hover,&:active,&:focus': {
-            backgroundColor: Amber[600],
+            backgroundColor: Amber[300],
         }
     }
 })
@@ -46,7 +47,7 @@ function PostList(props) {
                             <Explore />
                         </IconButton>
                     )
-                    : <Chip className={styles.exploreChip} icon={<Explore />} label={reducer.search} onDelete={() => {
+                    : <Chip className={styles.exploreChip} icon={<Explore />} label={reducer.search} deleteIcon={<DeleteIcon />} onDelete={() => {
 
                     }}/>
                 }

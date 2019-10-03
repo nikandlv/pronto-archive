@@ -9,6 +9,7 @@ import Explore from '@material-ui/icons/ExploreOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import Bookmark from '@material-ui/icons/BookmarkOutlined';
 import withDynamic from '../../Data/withDynamic';
+import { setSearch } from '../../Data/Actions/ApplicationActions';
 const styles = {
     root: {
         padding: '2px 4px',
@@ -42,6 +43,7 @@ function Searchbar(props) {
             <InputBase className={classes.input} defaultValue={query} onKeyPress={(event)=> {
                 if(event.key === 'Enter'){
                     if(query !== "") {
+                        props.setSearch(query)
                     }
                 }
             }} onChange={(event)=> {
@@ -49,7 +51,7 @@ function Searchbar(props) {
             }} placeholder={locale.search_placeholder} />
             <IconButton className={classes.iconButton} aria-label="Search"  onClick={()=> {
                 if(query !== "") {
-
+                    props.setSearch(query)
                 }
             }}>
                 <SearchIcon />
@@ -68,4 +70,7 @@ Searchbar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withDynamic(withStyles(styles)(Searchbar)).injectReducer('ApplicationReducer').build();
+export default withDynamic(withStyles(styles)(Searchbar))
+                .injectReducer('ApplicationReducer')
+                .injectAction('setSearch',setSearch)
+                .build();

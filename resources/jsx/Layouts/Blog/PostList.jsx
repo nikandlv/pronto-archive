@@ -2,6 +2,8 @@ import React from 'react'
 import { IconButton, makeStyles, Divider, Grid, Button, Chip } from '@material-ui/core'
 
 import Amber from '@material-ui/core/colors/amber'
+import Blue from '@material-ui/core/colors/blue'
+import Red from '@material-ui/core/colors/red'
 import ViewDay from '@material-ui/icons/ViewDayOutlined'
 import ViewWeek from '@material-ui/icons/AmpStoriesOutlined'
 import DeleteIcon from '@material-ui/icons/ClearOutlined'
@@ -11,7 +13,7 @@ import CategoryIcon from '@material-ui/icons/CategoryOutlined'
 import Explore from '@material-ui/icons/ExploreOutlined'
 import PostPreview from '../../Components/PostPreview'
 import withDynamic from '../../Data/withDynamic'
-import { setLanguage } from '../../Data/Actions/ApplicationActions'
+import { setLanguage, setSearch } from '../../Data/Actions/ApplicationActions'
 
 const useStyles = makeStyles({
     header: {
@@ -24,12 +26,28 @@ const useStyles = makeStyles({
     container: {
         marginTop: 16
     },
-    exploreChip: {
-        backgroundColor: Amber[100],
-        '&:hover,&:active,&:focus': {
-            backgroundColor: Amber[300],
+    chip: {
+        margin: 3,
+        '&.explore': {
+            backgroundColor: Amber[100],
+            '&:hover,&:active,&:focus': {
+                backgroundColor: Amber[300],
+            }
+        },
+        '&.category': {
+            backgroundColor: Blue[100],
+            '&:hover,&:active,&:focus': {
+                backgroundColor: Blue[300],
+            }
+        },
+        '&.tag': {
+            backgroundColor: Red[100],
+            '&:hover,&:active,&:focus': {
+                backgroundColor: Red[300],
+            }
         }
-    }
+    },
+    
 })
 
 function PostList(props) {
@@ -47,16 +65,32 @@ function PostList(props) {
                             <Explore />
                         </IconButton>
                     )
-                    : <Chip className={styles.exploreChip} icon={<Explore />} label={reducer.search} deleteIcon={<DeleteIcon />} onDelete={() => {
+                    : <Chip className={`${styles.chip} explore`} icon={<Explore />} label={reducer.search} deleteIcon={<DeleteIcon />} onDelete={() => {
+                        props.setSearch('')   
+                    }}/>
+                }
+                {
+                    reducer.category.id === 0
+                    ? (
+                        <IconButton>
+                            <CategoryIcon />
+                        </IconButton>
+                    )
+                    : <Chip className={`${styles.chip} category`} icon={<CategoryIcon />} label={reducer.category.title} deleteIcon={<DeleteIcon />} onDelete={() => {
 
                     }}/>
                 }
-                <IconButton>
-                    <CategoryIcon />
-                </IconButton>
-                <IconButton>
-                    <LabelIcon />
-                </IconButton>
+                {
+                    reducer.tag === ""
+                    ? (
+                        <IconButton>
+                            <LabelIcon />
+                        </IconButton>
+                    )
+                    : <Chip className={`${styles.chip} tag`} icon={<LabelIcon />} label={reducer.tag} deleteIcon={<DeleteIcon />} onDelete={() => {
+
+                    }}/>
+                }                
                 <div className={styles.push} />
                 <IconButton>
                     <ViewWeek />
@@ -84,4 +118,4 @@ function PostList(props) {
     )
 }
 
-export default withDynamic(PostList).injectReducer('ApplicationReducer').injectAction('setLanguage',setLanguage).build()
+export default withDynamic(PostList).injectReducer('ApplicationReducer').injectAction('setSearch',setSearch).build()

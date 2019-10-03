@@ -10,7 +10,7 @@ const initialState = {
         en_us: EnglishLocale,
         test_test: TestLocale,
     }),
-    search: "How to create a new blog",
+    search: "",
     tag: "",
     category: {
         title: "",
@@ -31,6 +31,21 @@ export default function ApplicationReducer(state = initialState,action) {
                 ...state,
                 language: action.payload
             }
+        case types.APPLICATION.SET_SEARCH:
+            return {
+                ...state,
+                search: action.payload
+            }
+        case types.APPLICATION.SET_TAG:
+            return {
+                ...state,
+                search: action.payload
+            }            
+        case types.APPLICATION.SET_CATEGORY:
+            return {
+                ...state,
+                search: action.payload
+            }            
     }
     return state;
 }

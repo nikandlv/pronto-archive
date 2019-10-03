@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Topbar(props) {
+  const [languageEl, setLanguageEl] = React.useState()
   const classes = useStyles();
 
   const name = props.ApplicationReducer.name || 'Pronto'

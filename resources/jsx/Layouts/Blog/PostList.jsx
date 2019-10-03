@@ -1,6 +1,7 @@
 import React from 'react'
-import { IconButton, makeStyles, Divider, Grid, Button } from '@material-ui/core'
+import { IconButton, makeStyles, Divider, Grid, Button, Chip } from '@material-ui/core'
 
+import Amber from '@material-ui/core/colors/amber'
 import ViewDay from '@material-ui/icons/ViewDayOutlined'
 import ViewWeek from '@material-ui/icons/AmpStoriesOutlined'
 import GridIcon from '@material-ui/icons/DashboardOutlined'
@@ -21,18 +22,34 @@ const useStyles = makeStyles({
     },
     container: {
         marginTop: 16
+    },
+    exploreChip: {
+        backgroundColor: Amber[500],
+        '&:hover,&:active,&:focus': {
+            backgroundColor: Amber[600],
+        }
     }
 })
 
 function PostList(props) {
     const styles = useStyles()
     const posts = [{},{}];
+    const reducer = props.ApplicationReducer || {}
+
     return (
         <section>
             <div className={styles.header}>
-                <IconButton>
-                    <Explore />
-                </IconButton>
+                {
+                    reducer.search === ""
+                    ? (
+                        <IconButton>
+                            <Explore />
+                        </IconButton>
+                    )
+                    : <Chip className={styles.exploreChip} icon={<Explore />} label={reducer.search} onDelete={() => {
+
+                    }}/>
+                }
                 <IconButton>
                     <CategoryIcon />
                 </IconButton>

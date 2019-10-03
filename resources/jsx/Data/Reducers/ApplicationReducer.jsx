@@ -9,7 +9,13 @@ const initialState = {
     locale: new LocalizedStrings({
         en_us: EnglishLocale,
         test_test: TestLocale,
-    })
+    }),
+    search: "How to create a new blog",
+    tag: "",
+    category: {
+        title: "",
+        id: 0
+    },
 }
 
 export default function ApplicationReducer(state = initialState,action) {

@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Explore from '@material-ui/icons/ExploreOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import Bookmark from '@material-ui/icons/BookmarkOutlined';
+import withDynamic from '../../Data/withDynamic';
 const styles = {
     root: {
         padding: '2px 4px',
@@ -32,6 +33,7 @@ const styles = {
 function Searchbar(props) {
     const { classes } = props;
     let query = "";
+    const locale = props.ApplicationReducer.locale || {};
     return (
         <Paper className={classes.root+" paper"} elevation={1}>
             <IconButton className={classes.iconButton} aria-label="Menu">
@@ -44,7 +46,7 @@ function Searchbar(props) {
                 }
             }} onChange={(event)=> {
                 query = event.target.value;
-            }} placeholder={'Search anything, everywhere'} />
+            }} placeholder={locale.search_placeholder} />
             <IconButton className={classes.iconButton} aria-label="Search"  onClick={()=> {
                 if(query !== "") {
 
@@ -66,4 +68,4 @@ Searchbar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Searchbar);
+export default withDynamic(withStyles(styles)(Searchbar)).injectReducer('ApplicationReducer').build();

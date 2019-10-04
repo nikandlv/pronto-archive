@@ -46,11 +46,15 @@ function Topbar(props) {
           <Typography variant="h6" className={classes.title}>
             {name}
           </Typography>
-          <IconButton color="inherit">
+          <IconButton color="inherit" onClick={(event) => {
+            setLanguageEl(event.currentTarget)
+          }}>
               <LanguageIcon />
           </IconButton>
           
-          <Menu>
+          <Menu open={Boolean(languageEl)} anchorEl={languageEl} onClose={() => {
+            setLanguageEl(null)
+          }}>
               <MenuItem>EN</MenuItem>
               <MenuItem>ES</MenuItem>
           </Menu>

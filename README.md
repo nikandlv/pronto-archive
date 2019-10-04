@@ -26,6 +26,7 @@ nikandlv@nikandlv.ir:~$ npm install
 #### Add your configuration
 
 ```console
+nikandlv@nikandlv.ir:~$ php artisan passport:install
 nikandlv@nikandlv.ir:~$ cp .env.example .env
 nikandlv@nikandlv.ir:~$ php artisan key:generate
 ```

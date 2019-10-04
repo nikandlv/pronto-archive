@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButton, CardActions, Button } from "@material-ui/core";
+import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButton, CardActions, Button, Menu, MenuItem } from "@material-ui/core";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Favorite from '@material-ui/icons/FavoriteBorderOutlined';
 import Message from '@material-ui/icons/MessageOutlined';
@@ -37,6 +37,9 @@ export default function PostPreview() {
                     title="How to get over something simple"
                     subheader="October 1, 2019"
             />
+            <Menu open={true}>
+                <MenuItem>Open in a new tab</MenuItem>
+            </Menu>
              <CardMedia
                 className={styles.media}
                 image={'https://images.unsplash.com/photo-1569844514393-4e409050d5d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'}

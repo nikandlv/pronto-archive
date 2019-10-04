@@ -8,7 +8,7 @@ import LanguageIcon from '@material-ui/icons/LanguageOutlined';
 import LightIcon from '@material-ui/icons/BrightnessLowOutlined'
 import LightOutIcon from '@material-ui/icons/Brightness2Outlined'
 import withDynamic from '../../Data/withDynamic';
-import { Avatar } from '@material-ui/core';
+import { Avatar, Menu, MenuItem } from '@material-ui/core';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { toggleTheme } from '../../Data/Actions/ApplicationActions';
 
@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Topbar(props) {
+  const [languageEl, setLanguageEl] = React.useState()
   const classes = useStyles();
 
   const name = props.ApplicationReducer.name || 'Pronto'
@@ -48,6 +49,12 @@ function Topbar(props) {
           <IconButton color="inherit">
               <LanguageIcon />
           </IconButton>
+          
+          <Menu>
+              <MenuItem>EN</MenuItem>
+              <MenuItem>ES</MenuItem>
+          </Menu>
+          
           <IconButton color="inherit" onClick={props.toggleTheme}>
               {
                 theme === 'light'
@@ -55,7 +62,7 @@ function Topbar(props) {
                 : <LightOutIcon />
               }
           </IconButton>
-
+          
           
           <ButtonBase className={classes.avatarbase}>
             <Avatar src={'/img/user.png'} />

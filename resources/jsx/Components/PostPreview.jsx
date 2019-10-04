@@ -31,14 +31,18 @@ export default function PostPreview() {
                     <Avatar src={'/img/user.png'} />
                     }
                     action={
-                    <IconButton aria-label="settings">
+                    <IconButton aria-label="settings" onClick={(event) => {
+                        setMenuEl(event.currentTarget)
+                    }}>
                         <MoreVertIcon />
                     </IconButton>
                     }
                     title="How to get over something simple"
                     subheader="October 1, 2019"
             />
-            <Menu open={Boolean(menuEl)} anchorEl={menuEl}>
+            <Menu open={Boolean(menuEl)} anchorEl={menuEl} onClose={() => {
+                setMenuEl(null)
+            }}>
                 <MenuItem>Open in a new tab</MenuItem>
             </Menu>
              <CardMedia

@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Explore from '@material-ui/icons/ExploreOutlined';
 import SearchIcon from '@material-ui/icons/Search';
-import Bookmark from '@material-ui/icons/BookmarkOutlined';
+import FilterListIcon from '@material-ui/icons/FilterList';
 import withDynamic from '../../Data/withDynamic';
 import { setSearch } from '../../Data/Actions/ApplicationActions';
 const styles = {
@@ -60,7 +60,7 @@ function Searchbar(props) {
             <IconButton color="primary" className={classes.iconButton} aria-label="Directions"  onClick={()=> {
 
             }}>
-                <Bookmark />
+                <FilterListIcon />
             </IconButton>
         </Paper>
     );

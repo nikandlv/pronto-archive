@@ -22,6 +22,7 @@ const useStyles = makeStyles({
 })
 
 export default function PostPreview() {
+    const [menuEl, setMenuEl] = React.useState()
     const styles = useStyles()
     return (
         <Card className={styles.card}>
@@ -37,7 +38,7 @@ export default function PostPreview() {
                     title="How to get over something simple"
                     subheader="October 1, 2019"
             />
-            <Menu open={true}>
+            <Menu open={Boolean(menuEl)} anchorEl={menuEl}>
                 <MenuItem>Open in a new tab</MenuItem>
             </Menu>
              <CardMedia

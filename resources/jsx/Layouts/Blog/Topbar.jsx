@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
 
 function Topbar(props) {
   const [languageEl, setLanguageEl] = React.useState()
+  const [accountEl, setAccountEl] = React.useState()
   const classes = useStyles();
 
   const name = props.ApplicationReducer.name || 'Pronto'
@@ -57,6 +58,11 @@ function Topbar(props) {
           }}>
               <MenuItem>EN</MenuItem>
               <MenuItem>ES</MenuItem>
+          </Menu>
+          <Menu>
+              <MenuItem>Admin panel</MenuItem>
+              <MenuItem>Profile</MenuItem>
+              <MenuItem>Sign out</MenuItem>
           </Menu>
           
           <IconButton color="inherit" onClick={props.toggleTheme}>

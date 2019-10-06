@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
 
 function Topbar(props) {
   const [languageEl, setLanguageEl] = React.useState()
+  const [accountEl, setAccountEl] = React.useState()
   const classes = useStyles();
 
   const name = props.ApplicationReducer.name || 'Pronto'
@@ -59,6 +60,7 @@ function Topbar(props) {
               <MenuItem>ES</MenuItem>
           </Menu>
           
+          
           <IconButton color="inherit" onClick={props.toggleTheme}>
               {
                 theme === 'light'
@@ -67,10 +69,20 @@ function Topbar(props) {
               }
           </IconButton>
           
-          
-          <ButtonBase className={classes.avatarbase}>
+          <ButtonBase className={classes.avatarbase} onClick={(event) => {
+            setAccountEl(event.currentTarget)
+          }}>
             <Avatar src={'/img/user.png'} />
           </ButtonBase>
+
+          <Menu open={Boolean(accountEl)} anchorEl={accountEl} onClose={() => {
+            setAccountEl(null)
+          }}>
+              <MenuItem>Admin panel</MenuItem>
+              <MenuItem>Profile</MenuItem>
+              <MenuItem>Sign out</MenuItem>
+          </Menu>
+
         </Toolbar>
       </AppBar>
     </div>

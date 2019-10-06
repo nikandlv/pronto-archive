@@ -16,44 +16,50 @@ import withDynamic from '../../Data/withDynamic'
 import { setLanguage, setSearch } from '../../Data/Actions/ApplicationActions'
 import StyledButton from '../../Components/StyledButton'
 
-const useStyles = makeStyles({
-    header: {
-        display: 'flex',
-        alignItems: 'center'
-    },
-    push: {
-        flexGrow: 1
-    },
-    container: {
-        marginTop: 16
-    },
-    chip: {
-        margin: 3,
-        '&.explore': {
-            backgroundColor: Amber[100],
-            '&:hover,&:active,&:focus': {
-                backgroundColor: Amber[300],
+const useStyles = makeStyles(theme => (
+    {
+        header: {
+            display: 'flex',
+            alignItems: 'center'
+        },
+        push: {
+            flexGrow: 1
+        },
+        container: {
+            marginTop: 16
+        },
+        chip: {
+            margin: 3,
+            color: '#616161',
+            '& svg': {
+                color: '#616161',
+            },
+            '&.explore': {
+                backgroundColor: Amber[100],
+                '&:hover,&:active,&:focus': {
+                    backgroundColor: Amber[300],
+                }
+            },
+            '&.category': {
+                backgroundColor: Blue[100],
+                '&:hover,&:active,&:focus': {
+                    backgroundColor: Blue[300],
+                }
+            },
+            '&.tag': {
+                backgroundColor: Red[100],
+                '&:hover,&:active,&:focus': {
+                    backgroundColor: Red[300],
+                }
             }
         },
-        '&.category': {
-            backgroundColor: Blue[100],
-            '&:hover,&:active,&:focus': {
-                backgroundColor: Blue[300],
-            }
-        },
-        '&.tag': {
-            backgroundColor: Red[100],
-            '&:hover,&:active,&:focus': {
-                backgroundColor: Red[300],
-            }
+        loadMoreWrapper: {
+            marginTop: 16,
+            display: 'flex',
+            justifyContent: 'center'
         }
-    },
-    loadMoreWrapper: {
-        marginTop: 16,
-        display: 'flex',
-        justifyContent: 'center'
     }
-})
+))
 
 const modes = {
     GRID: 'GRID',
@@ -77,7 +83,7 @@ function PostList(props) {
                             <Explore />
                         </IconButton>
                     )
-                    : <Chip className={`${styles.chip} explore`} icon={<Explore />} label={reducer.search} deleteIcon={<DeleteIcon />} onDelete={() => {
+                    : <Chip color="inherit" className={`${styles.chip} explore`} icon={<Explore />} label={reducer.search} deleteIcon={<DeleteIcon />} onDelete={() => {
                         props.setSearch('')   
                     }}/>
                 }

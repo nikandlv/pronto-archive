@@ -60,13 +60,6 @@ function Topbar(props) {
               <MenuItem>ES</MenuItem>
           </Menu>
           
-          <Menu open={Boolean(accountEl)} anchorEl={accountEl} onClose={() => {
-            setAccountEl(null)
-          }}>
-              <MenuItem>Admin panel</MenuItem>
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>Sign out</MenuItem>
-          </Menu>
           
           <IconButton color="inherit" onClick={props.toggleTheme}>
               {
@@ -76,10 +69,20 @@ function Topbar(props) {
               }
           </IconButton>
           
-          
-          <ButtonBase className={classes.avatarbase}>
+          <ButtonBase className={classes.avatarbase} onClick={(event) => {
+            setAccountEl(event.currentTarget)
+          }}>
             <Avatar src={'/img/user.png'} />
           </ButtonBase>
+
+          <Menu open={Boolean(accountEl)} anchorEl={accountEl} onClose={() => {
+            setAccountEl(null)
+          }}>
+              <MenuItem>Admin panel</MenuItem>
+              <MenuItem>Profile</MenuItem>
+              <MenuItem>Sign out</MenuItem>
+          </Menu>
+
         </Toolbar>
       </AppBar>
     </div>

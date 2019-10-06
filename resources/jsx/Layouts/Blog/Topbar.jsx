@@ -59,7 +59,10 @@ function Topbar(props) {
               <MenuItem>EN</MenuItem>
               <MenuItem>ES</MenuItem>
           </Menu>
-          <Menu>
+          
+          <Menu open={Boolean(accountEl)} anchorEl={accountEl} onClose={() => {
+            setAccountEl(null)
+          }}>
               <MenuItem>Admin panel</MenuItem>
               <MenuItem>Profile</MenuItem>
               <MenuItem>Sign out</MenuItem>

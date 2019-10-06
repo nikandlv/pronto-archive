@@ -2,6 +2,7 @@ import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import withDynamic from '../Data/withDynamic';
 const theme = {
     light: createMuiTheme({
         palette: {
@@ -14,7 +15,7 @@ const theme = {
         },  
     })
 };
-export default function Wrapper(props) {
+function Wrapper(props) {
     return (
         <ThemeProvider theme={theme.light}>
             <CssBaseline />
@@ -22,3 +23,5 @@ export default function Wrapper(props) {
         </ThemeProvider>
     )
 }
+
+export default withDynamic(Wrapper).injectReducer('ApplicationReducer').build()

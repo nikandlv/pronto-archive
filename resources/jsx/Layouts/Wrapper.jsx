@@ -16,8 +16,12 @@ const theme = {
     })
 };
 function Wrapper(props) {
+    let currentTheme = theme.light
+    if(props.ApplicationReducer.theme === 'dark') {
+        currentTheme = theme.dark
+    }
     return (
-        <ThemeProvider theme={theme.light}>
+        <ThemeProvider theme={currentTheme}>
             <CssBaseline />
             {props.children}
         </ThemeProvider>

@@ -66,13 +66,7 @@ function PostList(props) {
     const [posts, setPosts] = React.useState([{},{}]);
     const [loading, setLoading] = React.useState(false)
     const reducer = props.ApplicationReducer || {}
-
-    function setListMode(mode) {
-        return () => {
-            setMode(mode)
-        }
-    }
-
+    
     return (
         <section>
             <div className={styles.header}>

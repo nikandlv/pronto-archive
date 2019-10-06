@@ -110,14 +110,18 @@ function PostList(props) {
                     }}/>
                 }                
                 <div className={styles.push} />
-                <IconButton>
-                    <ViewWeek />
-                </IconButton>
-                <IconButton onClick={setListMode(modes.LIST)}>
-                    <ViewDay />
-                </IconButton>
-                <IconButton onClick={setListMode(modes.GRID)}>
-                    <GridIcon />
+                <IconButton onClick={event => {
+                    setMode(
+                        mode === modes.LIST
+                        ? modes.GRID
+                        : modes.LIST
+                    )
+                }}>
+                    {
+                        mode === modes.LIST
+                        ? <ViewDay />
+                        : <GridIcon />
+                    }
                 </IconButton>
             </div>
             <Divider/>

@@ -18,7 +18,6 @@ const useStyles = makeStyles({
 
 export default function Sidebar() {
     const classes = useStyles()
-    let open = true
     return (
         <section>
             <Searchbar />

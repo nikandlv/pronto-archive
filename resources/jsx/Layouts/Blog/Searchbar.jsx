@@ -32,6 +32,7 @@ const styles = {
 };
 
 function Searchbar(props) {
+    const [filterMode,setFilterMode] = React.useState(false)
     const { classes } = props;
     let query = "";
     const locale = props.ApplicationReducer.locale || {};

@@ -32,6 +32,9 @@ const styles = {
     },
     chips: {
         marginTop: 16
+    },
+    chip: {
+        margin: 2
     }
 };
 
@@ -70,7 +73,16 @@ function Searchbar(props) {
                 </IconButton>
             </Paper>
             <div className={classes.chips}>
-                <Chip label="test"/>
+                <Chip label="test" className={classes.chip}/>
+                <Chip label="test" className={classes.chip}/>
+                <Chip label="test" className={classes.chip}/>
+                <Chip label="test" className={classes.chip}/>
+                <Chip label="testtest" className={classes.chip}/>
+                <Chip label="test" className={classes.chip}/>
+                <Chip label="testtesttest" className={classes.chip}/>
+                <Chip label="test test" className={classes.chip}/>
+                <Chip label="test" className={classes.chip}/>
+                <Chip label="test" className={classes.chip}/>
             </div>
         </div>
     );

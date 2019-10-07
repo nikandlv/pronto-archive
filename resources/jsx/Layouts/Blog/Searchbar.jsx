@@ -58,8 +58,8 @@ function Searchbar(props) {
                 <SearchIcon />
             </IconButton>
             <Divider className={classes.divider} />
-            <IconButton color="primary" className={classes.iconButton} aria-label="Directions"  onClick={()=> {
-
+            <IconButton color="primary" className={classes.iconButton} aria-label="Filter mode"  onClick={()=> {
+                setFilterMode(!filterMode)
             }}>
                 <FilterListIcon />
             </IconButton>

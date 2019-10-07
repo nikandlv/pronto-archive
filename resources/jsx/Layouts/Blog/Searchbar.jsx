@@ -37,33 +37,35 @@ function Searchbar(props) {
     let query = "";
     const locale = props.ApplicationReducer.locale || {};
     return (
-        <Paper className={classes.root+" paper"} elevation={1}>
-            <IconButton className={classes.iconButton} aria-label="Menu">
-                <Explore />
-            </IconButton>
-            <InputBase className={classes.input} defaultValue={query} onKeyPress={(event)=> {
-                if(event.key === 'Enter'){
+        <div>
+            <Paper className={classes.root+" paper"} elevation={1}>
+                <IconButton className={classes.iconButton} aria-label="Menu">
+                    <Explore />
+                </IconButton>
+                <InputBase className={classes.input} defaultValue={query} onKeyPress={(event)=> {
+                    if(event.key === 'Enter'){
+                        if(query !== "") {
+                            props.setSearch(query)
+                        }
+                    }
+                }} onChange={(event)=> {
+                    query = event.target.value;
+                }} placeholder={locale.search_placeholder} />
+                <IconButton className={classes.iconButton} aria-label="Search"  onClick={()=> {
                     if(query !== "") {
                         props.setSearch(query)
                     }
-                }
-            }} onChange={(event)=> {
-                query = event.target.value;
-            }} placeholder={locale.search_placeholder} />
-            <IconButton className={classes.iconButton} aria-label="Search"  onClick={()=> {
-                if(query !== "") {
-                    props.setSearch(query)
-                }
-            }}>
-                <SearchIcon />
-            </IconButton>
-            <Divider className={classes.divider} />
-            <IconButton color="primary" className={classes.iconButton} aria-label="Filter mode"  onClick={()=> {
-                setFilterMode(!filterMode)
-            }}>
-                <FilterListIcon />
-            </IconButton>
-        </Paper>
+                }}>
+                    <SearchIcon />
+                </IconButton>
+                <Divider className={classes.divider} />
+                <IconButton color="primary" className={classes.iconButton} aria-label="Filter mode"  onClick={()=> {
+                    setFilterMode(!filterMode)
+                }}>
+                    <FilterListIcon />
+                </IconButton>
+            </Paper>
+        </div>
     );
 }
 

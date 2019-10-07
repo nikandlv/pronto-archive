@@ -10,6 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import withDynamic from '../../Data/withDynamic';
 import { setSearch } from '../../Data/Actions/ApplicationActions';
+import { Chip } from '@material-ui/core';
 const styles = {
     root: {
         padding: '2px 4px',
@@ -29,6 +30,9 @@ const styles = {
         height: 28,
         margin: 4,
     },
+    chips: {
+        marginTop: 16
+    }
 };
 
 function Searchbar(props) {
@@ -65,6 +69,9 @@ function Searchbar(props) {
                     <FilterListIcon />
                 </IconButton>
             </Paper>
+            <div className={classes.chips}>
+                <Chip label="test"/>
+            </div>
         </div>
     );
 }

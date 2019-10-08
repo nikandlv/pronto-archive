@@ -39,7 +39,7 @@ export default function ApplicationReducer(state = initialState,action) {
         case types.APPLICATION.SET_TAG:
             return {
                 ...state,
-                search: action.payload
+                tag: action.payload
             }            
         case types.APPLICATION.SET_CATEGORY:
             return {

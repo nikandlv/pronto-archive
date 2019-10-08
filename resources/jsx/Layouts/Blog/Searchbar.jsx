@@ -9,7 +9,7 @@ import Explore from '@material-ui/icons/ExploreOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import withDynamic from '../../Data/withDynamic';
-import { setSearch } from '../../Data/Actions/ApplicationActions';
+import { setSearch, setTag } from '../../Data/Actions/ApplicationActions';
 import { Chip, Collapse } from '@material-ui/core';
 const styles = {
     root: {
@@ -53,6 +53,11 @@ function Searchbar(props) {
     const { classes } = props;
     let query = "";
     const locale = props.ApplicationReducer.locale || {};
+    
+    function selectChip() {
+        props.setTag('afafasfsaf')
+    }
+
     return (
         <div>
             <Paper className={classes.root+" paper"} elevation={1}>
@@ -83,16 +88,16 @@ function Searchbar(props) {
                 </IconButton>
             </Paper>
             <Collapse className={`${classes.chips} ${filterMode ? "on" : "off"}`} in={filterMode}>
-                <Chip label="test" className={classes.chip}/>
-                <Chip label="test" className={classes.chip}/>
-                <Chip label="test" className={classes.chip}/>
-                <Chip label="test" className={classes.chip}/>
-                <Chip label="testtest" className={classes.chip}/>
-                <Chip label="test" className={classes.chip}/>
-                <Chip label="testtesttest" className={classes.chip}/>
-                <Chip label="test test" className={classes.chip}/>
-                <Chip label="test" className={classes.chip}/>
-                <Chip label="test" className={classes.chip}/>
+                <Chip label="test" className={classes.chip} onClick={selectChip}/>
+                <Chip label="test" className={classes.chip} onClick={selectChip}/>
+                <Chip label="test" className={classes.chip} onClick={selectChip}/>
+                <Chip label="test" className={classes.chip} onClick={selectChip}/>
+                <Chip label="testtest" className={classes.chip} onClick={selectChip}/>
+                <Chip label="test" className={classes.chip} onClick={selectChip}/>
+                <Chip label="testtesttest" className={classes.chip} onClick={selectChip}/>
+                <Chip label="test test" className={classes.chip} onClick={selectChip}/>
+                <Chip label="test" className={classes.chip} onClick={selectChip}/>
+                <Chip label="test" className={classes.chip} onClick={selectChip}/>
             </Collapse>
         </div>
     );
@@ -105,4 +110,5 @@ Searchbar.propTypes = {
 export default withDynamic(withStyles(styles)(Searchbar))
                 .injectReducer('ApplicationReducer')
                 .injectAction('setSearch',setSearch)
+                .injectAction('setTag',setTag)
                 .build();

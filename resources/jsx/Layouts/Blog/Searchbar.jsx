@@ -10,7 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import withDynamic from '../../Data/withDynamic';
 import { setSearch } from '../../Data/Actions/ApplicationActions';
-import { Chip } from '@material-ui/core';
+import { Chip, Collapse } from '@material-ui/core';
 const styles = {
     root: {
         padding: '2px 4px',
@@ -31,7 +31,13 @@ const styles = {
         margin: 4,
     },
     chips: {
-        marginTop: 16
+        transition: 'margin-top 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+        '&.off': {
+            marginTop: 0
+        },
+        '&.on': {
+            marginTop: 16
+        }
     },
     chip: {
         margin: 2
@@ -72,7 +78,7 @@ function Searchbar(props) {
                     <FilterListIcon />
                 </IconButton>
             </Paper>
-            <div className={classes.chips}>
+            <Collapse className={`${classes.chips} ${filterMode ? "on" : "off"}`} in={filterMode}>
                 <Chip label="test" className={classes.chip}/>
                 <Chip label="test" className={classes.chip}/>
                 <Chip label="test" className={classes.chip}/>
@@ -83,7 +89,7 @@ function Searchbar(props) {
                 <Chip label="test test" className={classes.chip}/>
                 <Chip label="test" className={classes.chip}/>
                 <Chip label="test" className={classes.chip}/>
-            </div>
+            </Collapse>
         </div>
     );
 }

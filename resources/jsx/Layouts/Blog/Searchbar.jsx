@@ -55,7 +55,9 @@ function Searchbar(props) {
     const locale = props.ApplicationReducer.locale || {};
     
     function selectChip() {
-        props.setTag('afafasfsaf')
+        return (tag) => {
+            props.setTag(tag)
+        }
     }
 
     return (
@@ -88,16 +90,14 @@ function Searchbar(props) {
                 </IconButton>
             </Paper>
             <Collapse className={`${classes.chips} ${filterMode ? "on" : "off"}`} in={filterMode}>
-                <Chip label="test" className={classes.chip} onClick={selectChip}/>
-                <Chip label="test" className={classes.chip} onClick={selectChip}/>
-                <Chip label="test" className={classes.chip} onClick={selectChip}/>
-                <Chip label="test" className={classes.chip} onClick={selectChip}/>
-                <Chip label="testtest" className={classes.chip} onClick={selectChip}/>
-                <Chip label="test" className={classes.chip} onClick={selectChip}/>
-                <Chip label="testtesttest" className={classes.chip} onClick={selectChip}/>
-                <Chip label="test test" className={classes.chip} onClick={selectChip}/>
-                <Chip label="test" className={classes.chip} onClick={selectChip}/>
-                <Chip label="test" className={classes.chip} onClick={selectChip}/>
+                <Chip label="hello" className={classes.chip} onClick={selectChip('hello')}/>
+                <Chip label="oct" className={classes.chip} onClick={selectChip('oct')}/>
+                <Chip label="download" className={classes.chip} onClick={selectChip('download')}/>
+                <Chip label="free" className={classes.chip} onClick={selectChip('free')}/>
+                <Chip label="sale" className={classes.chip} onClick={selectChip('sale')}/>
+                <Chip label="story" className={classes.chip} onClick={selectChip('story')}/>
+                <Chip label="general" className={classes.chip} onClick={selectChip('general')}/>
+                <Chip label="security" className={classes.chip} onClick={selectChip('security')}/>
             </Collapse>
         </div>
     );

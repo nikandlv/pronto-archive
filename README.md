@@ -31,6 +31,12 @@ nikandlv@nikandlv.ir:~$ cp .env.example .env
 nikandlv@nikandlv.ir:~$ php artisan key:generate
 ```
 
+#### Set the permissions
+
+```console
+nikandlv@nikandlv.ir:~$ chmod 660 storage/oauth-p*
+```
+
 #### Fireup the system/Setup everything
 
 ```console

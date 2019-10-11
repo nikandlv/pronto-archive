@@ -54,8 +54,8 @@ function Searchbar(props) {
     let query = "";
     const locale = props.ApplicationReducer.locale || {};
     
-    function selectChip() {
-        return (tag) => {
+    function selectChip(tag) {
+        return () => {
             props.setTag(tag)
         }
     }

@@ -82,9 +82,9 @@ class PostList extends React.Component {
     }
     
     render() {
-        const styles = props.classes
+        const styles = this.props.classes
         const {loading,mode,posts} = this.state
-        const reducer = props.ApplicationReducer || {}
+        const reducer = this.props.ApplicationReducer || {}
         
         const setMode = (mode) => {
             this.setState({mode})
@@ -104,7 +104,7 @@ class PostList extends React.Component {
                             </IconButton>
                         )
                         : <Chip color="inherit" className={`${styles.chip} explore`} icon={<Explore />} label={reducer.search} deleteIcon={<DeleteIcon />} onDelete={() => {
-                            props.setSearch('')   
+                            this.props.setSearch('')   
                         }}/>
                     }
                     {
@@ -126,7 +126,7 @@ class PostList extends React.Component {
                             </IconButton>
                         )
                         : <Chip className={`${styles.chip} tag`} icon={<LabelIcon />} label={reducer.tag} deleteIcon={<DeleteIcon />} onDelete={() => {
-                            props.setTag('')
+                            this.props.setTag('')
                         }}/>
                     }                
                     <div className={styles.push} />

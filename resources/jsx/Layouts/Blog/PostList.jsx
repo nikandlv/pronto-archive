@@ -14,8 +14,9 @@ import PostPreview from '../../Components/PostPreview'
 import withDynamic from '../../Data/withDynamic'
 import { setTag, setSearch } from '../../Data/Actions/ApplicationActions'
 import StyledButton from '../../Components/StyledButton'
+import { withStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(theme => (
+const styles = (theme => (
     {
         header: {
             display: 'flex',
@@ -67,23 +68,31 @@ const modes = {
 
 class PostList extends React.Component {
 
-    state = {
-        mode: 0,
-        posts: [{}, {}],
-        loading: false,
+    constructor(props) {
+        super(props)
+        this.state = {
+            mode: 0,
+            posts: [{}, {}],
+            loading: false,
+        }
     }
 
-    update = () => {
-
+    update() {
+        console.log('ok')
     }
     
     render() {
-        const [mode,setMode] = React.useState(0)
-        const styles = useStyles()
-        const [posts, setPosts] = React.useState([{},{}]);
-        const [loading, setLoading] = React.useState(false)
+        const styles = props.classes
+        const {loading,mode,posts} = this.state
         const reducer = props.ApplicationReducer || {}
         
+        const setMode = (mode) => {
+            this.setState({mode})
+        }
+        const setLoading = (loading) => {
+            this.setState({loading})
+        }
+
         return (
             <section>
                 <div className={styles.header}>
@@ -157,7 +166,7 @@ class PostList extends React.Component {
                     <StyledButton disabled={loading} onClick={() => {
                                 setLoading(true)
                                 setTimeout(() => {
-                                    setPosts([...posts,{},{}])
+                                    this.update()
                                     setLoading(false)
                                 }, 1000)
                             }}>
@@ -175,7 +184,10 @@ class PostList extends React.Component {
     }
 }
 
-export default withDynamic(PostList)
+
+export default withDynamic(
+    withStyles(styles)(PostList)
+)
 .injectReducer('ApplicationReducer')
 .injectAction('setSearch',setSearch)
 .injectAction('setTag',setTag).build()

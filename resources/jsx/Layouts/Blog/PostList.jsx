@@ -66,7 +66,16 @@ const modes = {
 }
 
 class PostList extends React.Component {
-    
+
+    state = {
+        mode: 0,
+        posts: [{}, {}],
+        loading: false,
+    }
+
+    update = () => {
+
+    }
     
     render() {
         const [mode,setMode] = React.useState(0)

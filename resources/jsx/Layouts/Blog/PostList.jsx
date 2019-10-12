@@ -5,7 +5,6 @@ import Amber from '@material-ui/core/colors/amber'
 import Blue from '@material-ui/core/colors/blue'
 import Red from '@material-ui/core/colors/red'
 import ViewDay from '@material-ui/icons/ViewDayOutlined'
-import ViewWeek from '@material-ui/icons/AmpStoriesOutlined'
 import DeleteIcon from '@material-ui/icons/ClearOutlined'
 import GridIcon from '@material-ui/icons/DashboardOutlined'
 import LabelIcon from '@material-ui/icons/LabelOutlined'
@@ -13,7 +12,7 @@ import CategoryIcon from '@material-ui/icons/CategoryOutlined'
 import Explore from '@material-ui/icons/ExploreOutlined'
 import PostPreview from '../../Components/PostPreview'
 import withDynamic from '../../Data/withDynamic'
-import { setLanguage, setSearch } from '../../Data/Actions/ApplicationActions'
+import { setTag, setSearch } from '../../Data/Actions/ApplicationActions'
 import StyledButton from '../../Components/StyledButton'
 
 const useStyles = makeStyles(theme => (
@@ -106,7 +105,7 @@ function PostList(props) {
                         </IconButton>
                     )
                     : <Chip className={`${styles.chip} tag`} icon={<LabelIcon />} label={reducer.tag} deleteIcon={<DeleteIcon />} onDelete={() => {
-
+                        props.setTag('')
                     }}/>
                 }                
                 <div className={styles.push} />
@@ -165,4 +164,5 @@ function PostList(props) {
 
 export default withDynamic(PostList)
 .injectReducer('ApplicationReducer')
-.injectAction('setSearch',setSearch).build()
+.injectAction('setSearch',setSearch)
+.injectAction('setTag',setTag).build()

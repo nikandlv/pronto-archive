@@ -19,7 +19,7 @@ export default function GithubWidget() {
     return (
         <Paper className={styles.paper}>
             <List>
-            <Collapse in={expand} >
+            <Collapse in={expand} collapsedHeight='160px'>
                 <ListItem>
                     <ListItemText primary="Pushed" />
                 </ListItem>

@@ -8,8 +8,8 @@ import posed, { PoseGroup } from 'react-pose';
 
 
 const RouteContainer = posed.div({
-    enter: { x: 0, opacity: 1,    beforeChildren: true,   },
-    exit: { x: -100, opacity: 0 }
+    enter: { y: 0, opacity: 1,    beforeChildren: true,   },
+    exit: { y: 100, opacity: 0 }
 });
 
 export default function BlogRouter(props) {

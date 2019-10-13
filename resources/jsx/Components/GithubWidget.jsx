@@ -1,11 +1,15 @@
 import React from 'react'
-import { Paper, List, ListItem, ListItemText, Collapse } from '@material-ui/core'
+import { Paper, List, ListItem, ListItemText, Collapse, IconButton } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-
+import ArrowDown from '@material-ui/icons/ExpandMoreOutlined'
+import ArrowUp from '@material-ui/icons/ExpandLessOutlined'
 const useStyles = makeStyles({
     paper: {
         borderRadius: 16,
         marginTop: 16
+    },
+    expand: {
+        justifyContent: 'center'
     }
 })
 
@@ -15,8 +19,20 @@ export default function GithubWidget() {
     return (
         <Paper className={styles.paper}>
             <List>
-            <Collapse in={expand}>
-            <ListItem>
+            <Collapse in={expand} >
+                <ListItem>
+                    <ListItemText primary="Pushed" />
+                </ListItem>
+                <ListItem>
+                    <ListItemText primary="Pushed" />
+                </ListItem>
+                <ListItem>
+                    <ListItemText primary="Pushed" />
+                </ListItem>
+                <ListItem>
+                    <ListItemText primary="Pushed" />
+                </ListItem>
+                <ListItem>
                     <ListItemText primary="Pushed" />
                 </ListItem>
                 <ListItem>
@@ -26,10 +42,16 @@ export default function GithubWidget() {
                     <ListItemText primary="Pushed" />
                 </ListItem>
             </Collapse>
-            <ListItem button onClick={() => {
+            <ListItem className={styles.expand} button onClick={() => {
                 setExpand(!expand)
             }}>
-                <ListItemText primary={expand? 'Collapse': 'Expand'} />
+                <IconButton>
+                    {
+                        expand
+                        ? <ArrowUp />
+                        : <ArrowDown />
+                    }
+                </IconButton>
             </ListItem>
             </List>
         </Paper>

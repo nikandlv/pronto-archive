@@ -65,101 +65,105 @@ const modes = {
     LIST: 'LIST'
 }
 
-function PostList(props) {
-    const [mode,setMode] = React.useState(0)
-    const styles = useStyles()
-    const [posts, setPosts] = React.useState([{},{}]);
-    const [loading, setLoading] = React.useState(false)
-    const reducer = props.ApplicationReducer || {}
+class PostList extends React.Component {
     
-    return (
-        <section>
-            <div className={styles.header}>
-                {
-                    reducer.search === ""
-                    ? (
-                        <IconButton>
-                            <Explore />
-                        </IconButton>
-                    )
-                    : <Chip color="inherit" className={`${styles.chip} explore`} icon={<Explore />} label={reducer.search} deleteIcon={<DeleteIcon />} onDelete={() => {
-                        props.setSearch('')   
-                    }}/>
-                }
-                {
-                    reducer.category.id === 0
-                    ? (
-                        <IconButton>
-                            <CategoryIcon />
-                        </IconButton>
-                    )
-                    : <Chip className={`${styles.chip} category`} icon={<CategoryIcon />} label={reducer.category.title} deleteIcon={<DeleteIcon />} onDelete={() => {
-
-                    }}/>
-                }
-                {
-                    reducer.tag === ""
-                    ? (
-                        <IconButton>
-                            <LabelIcon />
-                        </IconButton>
-                    )
-                    : <Chip className={`${styles.chip} tag`} icon={<LabelIcon />} label={reducer.tag} deleteIcon={<DeleteIcon />} onDelete={() => {
-                        props.setTag('')
-                    }}/>
-                }                
-                <div className={styles.push} />
-                <IconButton onClick={event => {
-                    setMode(
-                        mode === modes.LIST
-                        ? modes.GRID
-                        : modes.LIST
-                    )
-                }}>
+    
+    render() {
+        const [mode,setMode] = React.useState(0)
+        const styles = useStyles()
+        const [posts, setPosts] = React.useState([{},{}]);
+        const [loading, setLoading] = React.useState(false)
+        const reducer = props.ApplicationReducer || {}
+        
+        return (
+            <section>
+                <div className={styles.header}>
                     {
-                        mode === modes.LIST
-                        ? <ViewDay />
-                        : <GridIcon />
+                        reducer.search === ""
+                        ? (
+                            <IconButton>
+                                <Explore />
+                            </IconButton>
+                        )
+                        : <Chip color="inherit" className={`${styles.chip} explore`} icon={<Explore />} label={reducer.search} deleteIcon={<DeleteIcon />} onDelete={() => {
+                            props.setSearch('')   
+                        }}/>
                     }
-                </IconButton>
-            </div>
-            <Divider/>
-            <Grid container className={styles.container} spacing={2}>
-                {
-                    posts.map((post,key) => {
-                        if(mode === modes.LIST) {
+                    {
+                        reducer.category.id === 0
+                        ? (
+                            <IconButton>
+                                <CategoryIcon />
+                            </IconButton>
+                        )
+                        : <Chip className={`${styles.chip} category`} icon={<CategoryIcon />} label={reducer.category.title} deleteIcon={<DeleteIcon />} onDelete={() => {
+    
+                        }}/>
+                    }
+                    {
+                        reducer.tag === ""
+                        ? (
+                            <IconButton>
+                                <LabelIcon />
+                            </IconButton>
+                        )
+                        : <Chip className={`${styles.chip} tag`} icon={<LabelIcon />} label={reducer.tag} deleteIcon={<DeleteIcon />} onDelete={() => {
+                            props.setTag('')
+                        }}/>
+                    }                
+                    <div className={styles.push} />
+                    <IconButton onClick={event => {
+                        setMode(
+                            mode === modes.LIST
+                            ? modes.GRID
+                            : modes.LIST
+                        )
+                    }}>
+                        {
+                            mode === modes.LIST
+                            ? <ViewDay />
+                            : <GridIcon />
+                        }
+                    </IconButton>
+                </div>
+                <Divider/>
+                <Grid container className={styles.container} spacing={2}>
+                    {
+                        posts.map((post,key) => {
+                            if(mode === modes.LIST) {
+                                return (
+                                    <Grid item xs={12} key={key}>
+                                        <PostPreview />
+                                    </Grid>
+                                )    
+                            }
                             return (
-                                <Grid item xs={12} key={key}>
+                                <Grid item xs={12} md={6} key={key}>
                                     <PostPreview />
                                 </Grid>
-                            )    
-                        }
-                        return (
-                            <Grid item xs={12} md={6} key={key}>
-                                <PostPreview />
-                            </Grid>
-                        )
-                    })
-                }
-                <Grid item xs={12} className={styles.loadMoreWrapper}>
-                <StyledButton disabled={loading} onClick={() => {
-                            setLoading(true)
-                            setTimeout(() => {
-                                setPosts([...posts,{},{}])
-                                setLoading(false)
-                            }, 1000)
-                        }}>
-                    {
-                        loading
-                        ? <CircularProgress className={styles.progressBar} color="default" />
-                        : 'Load More'
-                    }        
-                        </StyledButton>
-                    
+                            )
+                        })
+                    }
+                    <Grid item xs={12} className={styles.loadMoreWrapper}>
+                    <StyledButton disabled={loading} onClick={() => {
+                                setLoading(true)
+                                setTimeout(() => {
+                                    setPosts([...posts,{},{}])
+                                    setLoading(false)
+                                }, 1000)
+                            }}>
+                        {
+                            loading
+                            ? <CircularProgress className={styles.progressBar} color="default" />
+                            : 'Load More'
+                        }        
+                            </StyledButton>
+                        
+                    </Grid>
                 </Grid>
-            </Grid>
-        </section>
-    )
+            </section>
+        )
+    }
 }
 
 export default withDynamic(PostList)

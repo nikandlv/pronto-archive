@@ -12,14 +12,16 @@ const RouteContainer = posed.div({
     exit: { x: -100, opacity: 0 }
 });
 
-export default function BlogRouter() {
+export default function BlogRouter(props) {
     return (
         <Wrapper>
-            <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/post/:slug" component={Post} exact />
-                <Route path="/about" component={About} exact />
-            </Switch>
+            <RouteContainer key={this.props.location.pathname}>
+                <Switch>
+                    <Route path="/" component={Home} exact />
+                    <Route path="/post/:slug" component={Post} exact />
+                    <Route path="/about" component={About} exact />
+                </Switch>
+            </RouteContainer>
         </Wrapper>
     )
 }

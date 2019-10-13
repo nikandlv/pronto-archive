@@ -1,6 +1,7 @@
 import React from 'react'
 import Comments from './Comments'
 import { Card, CardContent, makeStyles } from '@material-ui/core'
+import Attachments from '../../Components/Attachments'
 
 const useStyles = makeStyles({
     paper: {
@@ -17,6 +18,7 @@ export default function Post() {
                     abcsssssssssssssssss
                 </CardContent>
             </Card>
+            <Attachments />
             <Comments />
         </div>
     )

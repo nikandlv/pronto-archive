@@ -8,6 +8,7 @@ import SubjectIcon from '@material-ui/icons/SubjectOutlined';
 import MessageIcon from '@material-ui/icons/MessageOutlined';
 import Gutter from '../../Components/Gutter';
 import AboutCard from '../../Components/AboutCard';
+import GithubWidget from '../../Components/GithubWidget';
 
 const useStyles = makeStyles({
     menu: {
@@ -58,6 +59,7 @@ export default function Sidebar() {
                 </ListItem>
             </List>
             </Paper>
+            <GithubWidget />
             <AboutCard />
         </section>
     )

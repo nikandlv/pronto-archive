@@ -17,7 +17,7 @@ export default function BlogRouter(props) {
         <Wrapper>
             <PoseGroup>
                 <RouteContainer key={props.location.pathname}>
-                    <Switch>
+                    <Switch location={props.location}>
                         <Route path="/" component={Home} exact />
                         <Route path="/post/:slug" component={Post} exact />
                         <Route path="/about" component={About} exact />

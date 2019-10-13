@@ -51,43 +51,43 @@ export default function GithubWidget() {
                     <ListItemAvatar>
                         <Avatar src={'/img/user.png'} />
                     </ListItemAvatar>
-                    <ListItemText primary="Pushed" />
+                    <ListItemText primary="Pushed" secondary="Did some magic trick" />
                 </ListItem>
                 <ListItem button>
                     <ListItemAvatar>
                         <Avatar src={'/img/user.png'} />
                     </ListItemAvatar>
-                    <ListItemText primary="Pushed" />
+                    <ListItemText primary="Pushed" secondary="Did some magic trick" />
                 </ListItem>
                 <ListItem button>
                     <ListItemAvatar>
                         <Avatar src={'/img/user.png'} />
                     </ListItemAvatar>
-                    <ListItemText primary="Pushed" />
+                    <ListItemText primary="Pushed" secondary="Did some magic trick" />
                 </ListItem>
                 <ListItem button>
                     <ListItemAvatar>
                         <Avatar src={'/img/user.png'} />
                     </ListItemAvatar>
-                    <ListItemText primary="Pushed" />
+                    <ListItemText primary="Pushed" secondary="Did some magic trick" />
                 </ListItem>
                 <ListItem button>
                     <ListItemAvatar>
                         <Avatar src={'/img/user.png'} />
                     </ListItemAvatar>
-                    <ListItemText primary="Pushed" />
+                    <ListItemText primary="Pushed" secondary="Did some magic trick" />
                 </ListItem>
                 <ListItem button>
                     <ListItemAvatar>
                         <Avatar src={'/img/user.png'} />
                     </ListItemAvatar>
-                    <ListItemText primary="Pushed" />
+                    <ListItemText primary="Pushed" secondary="Did some magic trick" />
                 </ListItem>
                 <ListItem button>
                     <ListItemAvatar>
                         <Avatar src={'/img/user.png'} />
                     </ListItemAvatar>
-                    <ListItemText primary="Pushed" />
+                    <ListItemText primary="Pushed" secondary="Did some magic trick" />
                 </ListItem>
             </Collapse>
             <ListItem className={styles.expand} button onClick={() => {

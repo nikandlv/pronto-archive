@@ -3,7 +3,7 @@ import Comments from './Comments'
 export default function Post() {
     return (
         <div>
-            Post
+            
             <Comments />
         </div>
     )

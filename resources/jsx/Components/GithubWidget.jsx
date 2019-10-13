@@ -1,5 +1,5 @@
 import React from 'react'
-import { Paper, List, ListItem, ListItemText, Collapse, IconButton } from '@material-ui/core'
+import { Paper, List, ListItem, ListItemText, Collapse, IconButton, Avatar, ListItemAvatar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import ArrowDown from '@material-ui/icons/ExpandMoreOutlined'
 import ArrowUp from '@material-ui/icons/ExpandLessOutlined'
@@ -48,24 +48,45 @@ export default function GithubWidget() {
             <List className={styles.list}>
             <Collapse in={expand} collapsedHeight='160px'>
                 <ListItem button>
+                    <ListItemAvatar>
+                        <Avatar src={'/img/user.png'} />
+                    </ListItemAvatar>
                     <ListItemText primary="Pushed" />
                 </ListItem>
                 <ListItem button>
+                    <ListItemAvatar>
+                        <Avatar src={'/img/user.png'} />
+                    </ListItemAvatar>
                     <ListItemText primary="Pushed" />
                 </ListItem>
                 <ListItem button>
+                    <ListItemAvatar>
+                        <Avatar src={'/img/user.png'} />
+                    </ListItemAvatar>
                     <ListItemText primary="Pushed" />
                 </ListItem>
                 <ListItem button>
+                    <ListItemAvatar>
+                        <Avatar src={'/img/user.png'} />
+                    </ListItemAvatar>
                     <ListItemText primary="Pushed" />
                 </ListItem>
                 <ListItem button>
+                    <ListItemAvatar>
+                        <Avatar src={'/img/user.png'} />
+                    </ListItemAvatar>
                     <ListItemText primary="Pushed" />
                 </ListItem>
                 <ListItem button>
+                    <ListItemAvatar>
+                        <Avatar src={'/img/user.png'} />
+                    </ListItemAvatar>
                     <ListItemText primary="Pushed" />
                 </ListItem>
                 <ListItem button>
+                    <ListItemAvatar>
+                        <Avatar src={'/img/user.png'} />
+                    </ListItemAvatar>
                     <ListItemText primary="Pushed" />
                 </ListItem>
             </Collapse>

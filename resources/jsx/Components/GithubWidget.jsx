@@ -7,10 +7,15 @@ import GithubIcon from './Icons/GithubIcon'
 const useStyles = makeStyles({
     paper: {
         borderRadius: 16,
-        marginTop: 16
+        marginTop: 16,
+        padding: 0
     },
     expand: {
         justifyContent: 'center'
+    },
+    list: {
+        padding: 0,
+        borderRadius: 16
     }
 })
 
@@ -25,7 +30,7 @@ export default function GithubWidget() {
             </IconButton>
                     <ListItemText primary="Github activity" />
                 </ListItem>
-            <List>
+            <List className={styles.list}>
             <Collapse in={expand} collapsedHeight='160px'>
                 <ListItem button>
                     <ListItemText primary="Pushed" />
@@ -52,13 +57,11 @@ export default function GithubWidget() {
             <ListItem className={styles.expand} button onClick={() => {
                 setExpand(!expand)
             }}>
-                <IconButton>
                     {
                         expand
                         ? <ArrowUp />
                         : <ArrowDown />
                     }
-                </IconButton>
             </ListItem>
             </List>
         </Paper>

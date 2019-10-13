@@ -15,13 +15,15 @@ const RouteContainer = posed.div({
 export default function BlogRouter(props) {
     return (
         <Wrapper>
-            <RouteContainer key={this.props.location.pathname}>
-                <Switch>
-                    <Route path="/" component={Home} exact />
-                    <Route path="/post/:slug" component={Post} exact />
-                    <Route path="/about" component={About} exact />
-                </Switch>
-            </RouteContainer>
+            <PoseGroup>
+                <RouteContainer key={this.props.location.pathname}>
+                    <Switch>
+                        <Route path="/" component={Home} exact />
+                        <Route path="/post/:slug" component={Post} exact />
+                        <Route path="/about" component={About} exact />
+                    </Switch>
+                </RouteContainer>
+            </PoseGroup>
         </Wrapper>
     )
 }

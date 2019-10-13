@@ -3,6 +3,7 @@ import { Paper, List, ListItem, ListItemText, Collapse, IconButton } from '@mate
 import { makeStyles } from '@material-ui/styles'
 import ArrowDown from '@material-ui/icons/ExpandMoreOutlined'
 import ArrowUp from '@material-ui/icons/ExpandLessOutlined'
+import GithubIcon from './Icons/GithubIcon'
 const useStyles = makeStyles({
     paper: {
         borderRadius: 16,
@@ -18,27 +19,33 @@ export default function GithubWidget() {
     const [expand,setExpand] = React.useState()
     return (
         <Paper className={styles.paper}>
+            <ListItem>
+            <IconButton>
+            <GithubIcon />
+            </IconButton>
+                    <ListItemText primary="Github activity" />
+                </ListItem>
             <List>
             <Collapse in={expand} collapsedHeight='160px'>
-                <ListItem>
+                <ListItem button>
                     <ListItemText primary="Pushed" />
                 </ListItem>
-                <ListItem>
+                <ListItem button>
                     <ListItemText primary="Pushed" />
                 </ListItem>
-                <ListItem>
+                <ListItem button>
                     <ListItemText primary="Pushed" />
                 </ListItem>
-                <ListItem>
+                <ListItem button>
                     <ListItemText primary="Pushed" />
                 </ListItem>
-                <ListItem>
+                <ListItem button>
                     <ListItemText primary="Pushed" />
                 </ListItem>
-                <ListItem>
+                <ListItem button>
                     <ListItemText primary="Pushed" />
                 </ListItem>
-                <ListItem>
+                <ListItem button>
                     <ListItemText primary="Pushed" />
                 </ListItem>
             </Collapse>

@@ -9,6 +9,7 @@ import MessageIcon from '@material-ui/icons/MessageOutlined';
 import Gutter from '../../Components/Gutter';
 import AboutCard from '../../Components/AboutCard';
 import GithubWidget from '../../Components/GithubWidget';
+import CollisionLink from '../../Components/CollisionLink';
 
 const useStyles = makeStyles({
     menu: {
@@ -27,7 +28,7 @@ export default function Sidebar() {
             <List
                 component="nav"
                 aria-labelledby="nested-list-subheader">
-                <ListItem button>
+                <ListItem button  component={CollisionLink} to="/">
                     <ListItemIcon>
                         <HouseIcon />
                     </ListItemIcon>
@@ -51,7 +52,7 @@ export default function Sidebar() {
                     </ListItemIcon>
                     <ListItemText primary="Contact me"/>
                 </ListItem>
-                <ListItem button>
+                <ListItem button component={CollisionLink} to="/about">
                     <ListItemIcon>
                         <SubjectIcon />
                     </ListItemIcon>

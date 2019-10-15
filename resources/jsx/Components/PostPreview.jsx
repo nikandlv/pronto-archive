@@ -3,7 +3,7 @@ import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButto
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Favorite from '@material-ui/icons/FavoriteBorderOutlined';
 import Message from '@material-ui/icons/MessageOutlined';
-
+import CollisionLink from './CollisionLink';
 const useStyles = makeStyles({
     card: {
         borderRadius: 16
@@ -63,7 +63,7 @@ export default function PostPreview() {
                     <Message />
                 </IconButton>
                 <div className={styles.push}/>
-                <Button className={styles.readMore} size="small" color="primary" variant="contained">
+                <Button component={CollisionLink} to="/post/slug" className={styles.readMore} size="small" color="primary" variant="contained">
                     Read more
                 </Button>
             </CardActions>

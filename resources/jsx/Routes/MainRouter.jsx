@@ -6,14 +6,14 @@ import BlogRouter from './BlogRouter'
 import AdminRouter from './AdminRouter'
 import PanelRouter from './PanelRouter'
 
-export default function MainRouter() {
+export default function MainRouter(props) {
     return (
         <Wrapper>
             <BrowserRouter>
                 <Switch>
-                    <Route path="/panel/*" component={AdminRouter}/>
-                    <Route path="/admin/*" component={PanelRouter}/>
-                    <Route path="/*" component={BlogRouter}/>
+                    <Route path="/panel/*" component={AdminRouter} {...props}/>
+                    <Route path="/admin/*" component={PanelRouter} {...props}/>
+                    <Route path="/*" component={BlogRouter} {...props}/>
                 </Switch>
             </BrowserRouter>
         </Wrapper>

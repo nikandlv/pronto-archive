@@ -3,7 +3,9 @@ import { Card, CardContent, makeStyles, CardHeader, CardMedia, Avatar, IconButto
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Favorite from '@material-ui/icons/FavoriteBorderOutlined';
 import Message from '@material-ui/icons/MessageOutlined';
-import CollisionLink from '../../Components/CollisionLink';
+import Attachments from '../../Components/Attachments'
+import MetaData from '../../Components/MetaData'
+import Comments from './Comments'
 const useStyles = makeStyles({
     card: {
         borderRadius: 16
@@ -74,6 +76,9 @@ export default function Post() {
                     <div className={styles.push}/>
                     
                 </CardActions>
+                <Attachments />
+                <MetaData />
+                <Comments />
             </Card>
         </section>
     )

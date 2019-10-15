@@ -63,9 +63,7 @@ export default function Post() {
                     <Message />
                 </IconButton>
                 <div className={styles.push}/>
-                <Button component={CollisionLink} to="/post/slug" className={styles.readMore} size="small" color="primary" variant="contained">
-                    Read more
-                </Button>
+                
             </CardActions>
         </Card>
     )

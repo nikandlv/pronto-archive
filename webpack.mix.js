@@ -3,6 +3,7 @@ const mixDependency = require('mix-dependency');
 
 mixDependency.require('react-localization');
 mixDependency.require('react-pose');
+mixDependency.require('axios');
 mixDependency.require('axios-endpoint');
 /*
  |--------------------------------------------------------------------------
